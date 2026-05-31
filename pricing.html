@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing — Bastion</title>
+  <meta name="description" content="Bastion pricing — Family, Business and Enterprise plans. Monthly or annual, from ₹199/month. Pay only for the devices you protect." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css" />
+  <link rel="stylesheet" href="site.css" />
+</head>
+<body>
+
+  <!-- ============================== NAV ============================== -->
+  <header class="nav is-stuck" id="nav">
+    <div class="wrap nav__in">
+      <a class="brand" href="index.html">
+        <svg class="brand__mark" viewBox="0 0 30 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M15 1.5 L27.5 6 V16.5 C27.5 25 21.8 30.4 15 32.5 C8.2 30.4 2.5 25 2.5 16.5 V6 Z" fill="#0e8088"/>
+          <path d="M9.5 17 l3.6 3.6 L21 12.6" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Bastion
+      </a>
+      <nav class="nav__links">
+        <a href="index.html#how">How it works</a>
+        <a href="index.html#who">Who it's for</a>
+        <a href="index.html#features">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="index.html#faq">FAQ</a>
+      </nav>
+      <div class="nav__spacer"></div>
+      <div class="nav__cta">
+        <a class="btn btn--ghost btn--sm" href="index.html#tour">See it in action</a>
+        <a class="btn btn--primary btn--sm" href="mailto:vasusheoran92@gmail.com?subject=Bastion%20early%20access">Get early access</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================== PRICE HERO ============================== -->
+  <section class="price-hero">
+    <div class="wrap">
+      <span class="eyebrow" style="margin-bottom:18px;">Pricing</span>
+      <h1>Pricing that scales with you.</h1>
+      <p class="lead">From a single family to a dedicated business instance. Pay only for the devices you protect — switch or cancel anytime.</p>
+      <div class="billing" role="tablist" aria-label="Billing period">
+        <button id="bp-monthly" class="is-active" role="tab" aria-selected="true" onclick="setBilling('monthly')">Monthly</button>
+        <button id="bp-annual" role="tab" aria-selected="false" onclick="setBilling('annual')">Annual <span class="save">Save ~20%</span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== TIERS ============================== -->
+  <section>
+    <div class="wrap">
+      <div class="tiers">
+
+        <!-- FAMILY -->
+        <div class="tier">
+          <div class="tier__name">Family</div>
+          <div class="tier__for">For parents protecting their kids' devices.</div>
+          <div class="tier__price">
+            <span class="tier__amt" data-monthly="₹199" data-annual="₹149">₹199</span>
+            <span class="tier__per">/ month</span>
+          </div>
+          <div class="tier__sub" data-monthly="Billed monthly · cancel anytime" data-annual="₹1,788 billed annually">Billed monthly · cancel anytime</div>
+          <a class="btn btn--primary tier__btn" href="mailto:vasusheoran92@gmail.com?subject=Bastion%20Family%20plan">Get started</a>
+          <span class="tier__inst"><i class="ph-fill ph-cloud"></i> Shared cloud instance</span>
+          <div class="tier__divider"></div>
+          <ul class="tier__feats">
+            <li><i class="ph-fill ph-check-circle"></i> Up to <b>&nbsp;5 devices</b></li>
+            <li><i class="ph-fill ph-check-circle"></i> All content categories</li>
+            <li><i class="ph-fill ph-check-circle"></i> Custom site blocks</li>
+            <li><i class="ph-fill ph-check-circle"></i> 7-day history per device</li>
+            <li><i class="ph-fill ph-check-circle"></i> iOS, Android, macOS &amp; Windows</li>
+          </ul>
+        </div>
+
+        <!-- BUSINESS -->
+        <div class="tier tier--pop">
+          <div class="tier__badge">Most popular</div>
+          <div class="tier__name">Business · SME</div>
+          <div class="tier__for">For teams of any size, up to 29 devices.</div>
+          <div class="tier__price">
+            <span class="tier__amt" data-monthly="₹599" data-annual="₹499">₹599</span>
+            <span class="tier__per">/ month</span>
+          </div>
+          <div class="tier__sub" data-monthly="First 10 devices · then + ₹49 / device · billed monthly" data-annual="₹5,988 / yr · then + ₹468 / yr per extra device">First 10 devices · then + ₹49 / device · billed monthly</div>
+          <a class="btn btn--primary tier__btn" href="mailto:vasusheoran92@gmail.com?subject=Bastion%20Business%20plan">Get started</a>
+          <span class="tier__inst"><i class="ph-fill ph-cloud"></i> Shared cloud instance</span>
+          <div class="tier__divider"></div>
+          <ul class="tier__feats">
+            <li><i class="ph-fill ph-check-circle"></i> <b>Up to 29 devices</b></li>
+            <li><i class="ph-fill ph-check-circle"></i> First 10 included, then <span data-monthly="+ ₹49" data-annual="+ ₹39">+ ₹49</span>&nbsp;/ device</li>
+            <li><i class="ph-fill ph-check-circle"></i> Company-wide category rules</li>
+            <li><i class="ph-fill ph-check-circle"></i> Per-employee activity reports</li>
+            <li><i class="ph-fill ph-check-circle"></i> MDM &amp; BYOD device setup</li>
+            <li><i class="ph-fill ph-check-circle"></i> Bulk enrolment &amp; GST invoicing</li>
+          </ul>
+        </div>
+
+        <!-- ENTERPRISE -->
+        <div class="tier tier--ent">
+          <div class="tier__name">Enterprise</div>
+          <div class="tier__for">For privacy-first &amp; compliance teams.</div>
+          <div class="tier__price">
+            <span class="tier__amt" style="font-size:30px;">Custom</span>
+          </div>
+          <div class="tier__sub">Tailored to your team &amp; compliance needs</div>
+          <a class="btn btn--onteal tier__btn" href="mailto:vasusheoran92@gmail.com?subject=Bastion%20Enterprise%20enquiry">Contact us</a>
+          <span class="tier__inst"><i class="ph-fill ph-shield-check"></i> Dedicated isolated VPS</span>
+          <div class="tier__divider"></div>
+          <ul class="tier__feats">
+            <li><i class="ph-fill ph-check-circle"></i> <b>Unlimited devices</b><sup style="font-size:.7em; color:var(--block);">&nbsp;*</sup></li>
+            <li><i class="ph-fill ph-check-circle"></i> Dedicated, isolated VPS</li>
+            <li><i class="ph-fill ph-check-circle"></i> Filtering beyond DNS</li>
+            <li><i class="ph-fill ph-check-circle"></i> Custom provisioning</li>
+            <li><i class="ph-fill ph-check-circle"></i> Dedicated support &amp; SLA</li>
+          </ul>
+        </div>
+
+      </div>
+      <p class="price-note">All prices in INR and exclusive of applicable taxes. Annual plans are billed once per year.<br><span style="opacity:.85">* Enterprise is unlimited under fair use, on a dedicated VPS sized to your team. Final scope and pricing are confirmed in your custom quote.</span></p>
+    </div>
+  </section>
+
+  <!-- ============================== PRICING FAQ ============================== -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal" style="max-width:680px;">
+        <span class="eyebrow">Billing questions</span>
+        <h2>Good to know.</h2>
+      </div>
+      <div class="faq">
+        <details class="faq__item reveal" open><summary>How does device counting work? <i class="ph ph-plus"></i></summary><p>You're billed for the number of devices you actively protect. Family covers up to 5 devices. Business starts at ₹599/month for the first 10 devices and scales with a small per-device fee up to 29. Reach 30 devices and Enterprise becomes the better fit.</p></details>
+        <details class="faq__item reveal"><summary>What's the difference between shared cloud and a dedicated VPS? <i class="ph ph-plus"></i></summary><p>Family and Business plans run on Bastion's secure, shared cloud instance — fast to set up and maintenance-free. Enterprise runs on a dedicated, isolated VPS provisioned just for you, giving full traffic isolation and data control for compliance-sensitive work.</p></details>
+        <details class="faq__item reveal"><summary>Can I switch plans or billing periods later? <i class="ph ph-plus"></i></summary><p>Yes. You can move between plans as your needs change, and switch between monthly and annual billing at any renewal. Annual billing saves roughly 20% versus paying monthly.</p></details>
+        <details class="faq__item reveal"><summary>How do I pay, and do I get an invoice? <i class="ph ph-plus"></i></summary><p>Family plans are paid monthly via UPI. Business and Enterprise plans include GST invoicing for your records. Get in touch and we'll set you up.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== CTA BAND ============================== -->
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="ctaband reveal">
+        <div class="ctaband__in">
+          <h2>Not sure which plan fits?</h2>
+          <p>Tell us how many devices you need to protect and we'll point you to the right plan.</p>
+          <div class="btns">
+            <a class="btn btn--onteal btn--lg" href="mailto:vasusheoran92@gmail.com?subject=Bastion%20plan%20help">Talk to us <i class="ph ph-arrow-right"></i></a>
+            <a class="btn btn--onteal-ghost btn--lg" href="index.html">Back to home</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== FOOTER ============================== -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__grid">
+        <div>
+          <a class="brand" href="index.html">
+            <svg class="brand__mark" viewBox="0 0 30 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M15 1.5 L27.5 6 V16.5 C27.5 25 21.8 30.4 15 32.5 C8.2 30.4 2.5 25 2.5 16.5 V6 Z" fill="#0e8088"/>
+              <path d="M9.5 17 l3.6 3.6 L21 12.6" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Bastion
+          </a>
+          <p class="footer__about">DNS-based content filtering for families and teams. No hardware, no fuss — a calmer internet on the devices you care about.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Product</h4>
+          <a href="index.html#how">How it works</a>
+          <a href="index.html#features">Features</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="index.html#tour">Product tour</a>
+        </div>
+        <div class="footer__col">
+          <h4>Use cases</h4>
+          <a href="index.html#who">For parents</a>
+          <a href="index.html#who">For teams</a>
+          <a href="index.html#who">For enterprise</a>
+          <a href="index.html#faq">FAQ</a>
+        </div>
+        <div class="footer__col">
+          <h4>Get in touch</h4>
+          <a href="mailto:vasusheoran92@gmail.com">Email us</a>
+          <a href="mailto:vasusheoran92@gmail.com?subject=Bastion%20early%20access">Request early access</a>
+          <a href="mailto:vasusheoran92@gmail.com?subject=Bastion%20enterprise%20enquiry">Enterprise enquiry</a>
+        </div>
+      </div>
+      <div class="footer__bar">
+        <span>© 2026 Bastion. All rights reserved.</span>
+        <span class="mono">bastion.codeunbound.dev</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function setBilling(mode) {
+      document.getElementById('bp-monthly').classList.toggle('is-active', mode === 'monthly');
+      document.getElementById('bp-annual').classList.toggle('is-active', mode === 'annual');
+      document.getElementById('bp-monthly').setAttribute('aria-selected', mode === 'monthly');
+      document.getElementById('bp-annual').setAttribute('aria-selected', mode === 'annual');
+      document.querySelectorAll('[data-monthly]').forEach((el) => {
+        const v = el.getAttribute('data-' + mode);
+        if (v !== null) el.textContent = v;
+      });
+    }
+
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+  </script>
+</body>
+</html>

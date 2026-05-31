@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bastion — A calmer internet for the devices you manage</title>
+  <meta name="description" content="Bastion is DNS-based content filtering for families and teams. Block adult content, social media, and distractions on any phone, tablet, or laptop — no hardware, no app to install." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css" />
+  <link rel="stylesheet" href="site.css" />
+</head>
+<body>
+
+  <!-- ============================== NAV ============================== -->
+  <header class="nav" id="nav">
+    <div class="wrap nav__in">
+      <a class="brand" href="index.html" data-screen-label="logo">
+        <svg class="brand__mark" viewBox="0 0 30 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M15 1.5 L27.5 6 V16.5 C27.5 25 21.8 30.4 15 32.5 C8.2 30.4 2.5 25 2.5 16.5 V6 Z" fill="#0e8088"/>
+          <path d="M9.5 17 l3.6 3.6 L21 12.6" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Bastion
+      </a>
+      <nav class="nav__links">
+        <a href="#how">How it works</a>
+        <a href="#who">Who it's for</a>
+        <a href="#features">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="nav__spacer"></div>
+      <div class="nav__cta">
+        <a class="btn btn--ghost btn--sm" href="#tour">See it in action</a>
+        <a class="btn btn--primary btn--sm" href="mailto:vasusheoran92@gmail.com?subject=Bastion%20early%20access">Get early access</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================== HERO ============================== -->
+  <section class="hero">
+    <div class="wrap hero__grid">
+      <div class="hero__copy">
+        <span class="eyebrow"><span class="dot"></span> Now in private beta</span>
+        <h1>A calmer internet for the devices <span class="accent">you manage.</span></h1>
+        <p class="hero__sub">Bastion filters the web at the DNS level — block adult content, social media, gambling and distractions on any phone, tablet or laptop. No hardware. No app to install. Manage everything from one simple dashboard.</p>
+        <div class="hero__cta">
+          <a class="btn btn--primary btn--lg" href="mailto:vasusheoran92@gmail.com?subject=Bastion%20early%20access">Get early access <i class="ph ph-arrow-right"></i></a>
+          <a class="btn btn--ghost btn--lg" href="#how">See how it works</a>
+        </div>
+        <div class="hero__trust">
+          <span><i class="ph-fill ph-check-circle"></i> No hardware required</span>
+          <span><i class="ph-fill ph-check-circle"></i> Wi-Fi &amp; mobile data</span>
+          <span><i class="ph-fill ph-check-circle"></i> From ₹199 / month</span>
+        </div>
+      </div>
+
+      <div class="hero__visual">
+        <div class="phone-glow"></div>
+
+        <!-- SME phone peeking behind -->
+        <div class="phone phone--sm" style="position:absolute; left:0; bottom:18px; transform: rotate(-6deg);">
+          <div class="phone__screen">
+            <div class="phone__notch"></div>
+            <div class="scr scr--sme">
+              <div class="scr__bar"><span>9:41</span><span><i class="ph-fill ph-cell-signal-full"></i><i class="ph-fill ph-wifi-high"></i><i class="ph-fill ph-battery-high"></i></span></div>
+              <div class="scr__body">
+                <div class="scr__greet">Northwind Studio</div>
+                <div class="scr__title">Company</div>
+                <div class="scr-stat">
+                  <div class="scr-stat__c"><div class="scr-stat__n">18</div><div class="scr-stat__l">Devices</div></div>
+                  <div class="scr-stat__c"><div class="scr-stat__n">2,940</div><div class="scr-stat__l">Blocked today</div></div>
+                </div>
+                <div class="scr-sh">Company rules</div>
+                <div class="scr-cat is-on"><span class="scr-cat__ic"><i class="ph-fill ph-chats-circle"></i></span><span style="flex:1"><span class="scr-cat__nm">Social media</span><span class="scr-cat__st">Blocked</span></span><span class="scr-sw"><span class="scr-sw__k"></span></span></div>
+                <div class="scr-cat is-on"><span class="scr-cat__ic"><i class="ph-fill ph-poker-chip"></i></span><span style="flex:1"><span class="scr-cat__nm">Gambling</span><span class="scr-cat__st">Blocked</span></span><span class="scr-sw"><span class="scr-sw__k"></span></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Family phone front -->
+        <div class="phone" style="margin-left:64px;">
+          <div class="phone__screen">
+            <div class="phone__notch"></div>
+            <div class="scr">
+              <div class="scr__bar"><span>9:41</span><span><i class="ph-fill ph-cell-signal-full"></i><i class="ph-fill ph-wifi-high"></i><i class="ph-fill ph-battery-high"></i></span></div>
+              <div class="scr__body">
+                <div class="scr__greet">Welcome back, Priya</div>
+                <div class="scr__title">Your devices</div>
+                <div class="scr-dev">
+                  <span class="scr-dev__ic"><i class="ph-fill ph-device-mobile"></i></span>
+                  <span style="flex:1"><span class="scr-dev__nm">Aarav's iPhone</span><span class="scr-dev__meta"><span class="scr-dev__online"><span class="d"></span>Online</span> · iOS</span></span>
+                  <i class="ph ph-caret-right" style="color:var(--ink-300)"></i>
+                </div>
+                <div class="scr-dev">
+                  <span class="scr-dev__ic"><i class="ph-fill ph-device-tablet"></i></span>
+                  <span style="flex:1"><span class="scr-dev__nm">Diya's iPad</span><span class="scr-dev__meta"><span class="scr-dev__online"><span class="d"></span>Online</span> · iPadOS</span></span>
+                  <i class="ph ph-caret-right" style="color:var(--ink-300)"></i>
+                </div>
+                <div class="scr-sh">Content categories</div>
+                <div class="scr-cat is-on"><span class="scr-cat__ic"><i class="ph-fill ph-eye-slash"></i></span><span style="flex:1"><span class="scr-cat__nm">Adult content</span><span class="scr-cat__st">Blocked</span></span><span class="scr-sw"><span class="scr-sw__k"></span></span></div>
+                <div class="scr-cat is-on"><span class="scr-cat__ic"><i class="ph-fill ph-chats-circle"></i></span><span style="flex:1"><span class="scr-cat__nm">Social media</span><span class="scr-cat__st">Blocked</span></span><span class="scr-sw"><span class="scr-sw__k"></span></span></div>
+                <div class="scr-cat"><span class="scr-cat__ic"><i class="ph-fill ph-game-controller"></i></span><span style="flex:1"><span class="scr-cat__nm">Gaming</span><span class="scr-cat__st">Allowed</span></span><span class="scr-sw"><span class="scr-sw__k"></span></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="float-chip float-chip--a">
+          <i class="ph-fill ph-shield-check" style="color:var(--teal-600)"></i>
+          <span><b>Adult content</b><small>Blocked on 3 devices</small></span>
+        </div>
+        <div class="float-chip float-chip--b">
+          <i class="ph-fill ph-pulse" style="color:var(--allow)"></i>
+          <span><b>1,284 queries</b><small>Filtered in the last 24h</small></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== TRUST STRIP ============================== -->
+  <div class="strip">
+    <div class="wrap strip__in">
+      <div class="strip__item"><i class="ph-fill ph-hard-drives"></i> No router or hardware</div>
+      <div class="strip__item"><i class="ph-fill ph-wifi-high"></i> Works on any network</div>
+      <div class="strip__item"><i class="ph-fill ph-devices"></i> One account, every device</div>
+      <div class="strip__item"><i class="ph-fill ph-lock-key"></i> Private by design</div>
+    </div>
+  </div>
+
+  <!-- ============================== HOW IT WORKS ============================== -->
+  <section class="section" id="how">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">How it works</span>
+        <h2>Set up in minutes, not an afternoon.</h2>
+        <p class="lead">Bastion routes each device's DNS through a filter you control. Nothing to plug in, nothing to root or jailbreak.</p>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <i class="ph-duotone ph-plus-circle step__ic"></i>
+          <div class="step__n">STEP 01</div>
+          <h3>Add a device</h3>
+          <p>Name the phone, tablet or laptop you want to protect. Bastion creates a private, per-device address so each one is managed on its own.</p>
+        </div>
+        <div class="step reveal">
+          <i class="ph-duotone ph-qr-code step__ic"></i>
+          <div class="step__n">STEP 02</div>
+          <h3>Apply the profile</h3>
+          <p>Scan a QR or download a one-tap profile. Guided steps for iOS, Android (Stock, MIUI, OneUI, ColorOS), macOS and Windows.</p>
+        </div>
+        <div class="step reveal">
+          <i class="ph-duotone ph-sliders-horizontal step__ic"></i>
+          <div class="step__n">STEP 03</div>
+          <h3>Manage from anywhere</h3>
+          <p>Toggle categories, block a specific site, and review the last 7 days of activity — all from a clean dashboard on your own phone.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== PRODUCT TOUR ============================== -->
+  <section class="section section--tight" id="tour">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">A look inside</span>
+        <h2>Calm, clear, and quick to use.</h2>
+        <p class="lead">The whole product lives in one tidy dashboard. Tap through a few of the screens you'll use most.</p>
+      </div>
+
+      <div class="tour-wrap reveal">
+        <div class="tour-tabs" id="tourTabs">
+          <button class="tour-tab is-active" data-i="0" onclick="setTour(0)">
+            <span class="tour-tab__ic"><i class="ph-fill ph-squares-four"></i></span>
+            <span><span class="tour-tab__tt">Manage every device</span><span class="tour-tab__ds">See each phone, tablet or laptop and flip category rules on or off.</span></span>
+          </button>
+          <button class="tour-tab" data-i="1" onclick="setTour(1)">
+            <span class="tour-tab__ic"><i class="ph-fill ph-clock-counter-clockwise"></i></span>
+            <span><span class="tour-tab__tt">Review 7-day activity</span><span class="tour-tab__ds">Top domains, what was allowed and what got blocked — per device.</span></span>
+          </button>
+          <button class="tour-tab" data-i="2" onclick="setTour(2)">
+            <span class="tour-tab__ic"><i class="ph-fill ph-qr-code"></i></span>
+            <span><span class="tour-tab__tt">Onboard in minutes</span><span class="tour-tab__ds">A private address and a one-tap profile for each new device.</span></span>
+          </button>
+          <button class="tour-tab" data-i="3" onclick="setTour(3)">
+            <span class="tour-tab__ic"><i class="ph-fill ph-buildings"></i></span>
+            <span><span class="tour-tab__tt">Run rules for a team</span><span class="tour-tab__ds">Company-wide policies and per-employee reporting for business plans.</span></span>
+          </button>
+        </div>
+
+        <div class="tour-stage">
+          <div class="phone-glow"></div>
+          <div class="phone">
+            <div class="phone__screen">
+              <div class="phone__notch"></div>
+
+              <!-- Screen 0: Family dashboard -->
+              <div class="tour-screen is-active">
+                <div class="scr">
+                  <div class="scr__bar"><span>9:41</span><span><i class="ph-fill ph-cell-signal-full"></i><i class="ph-fill ph-wifi-high"></i><i class="ph-fill ph-battery-high"></i></span></div>
+                  <div class="scr__body">
+                    <div class="scr__greet">Welcome back, Priya</div>
+                    <div class="scr__title">Your devices</div>
+                    <div class="scr-dev"><span class="scr-dev__ic"><i class="ph-fill ph-device-mobile"></i></span><span style="flex:1"><span class="scr-dev__nm">Aarav's iPhone</span><span class="scr-dev__meta"><span class="scr-dev__online"><span class="d"></span>Online</span> · iOS</span></span><i class="ph ph-caret-right" style="color:var(--ink-300)"></i></div>
+                    <div class="scr-dev"><span class="scr-dev__ic"><i class="ph-fill ph-device-tablet"></i></span><span style="flex:1"><span class="scr-dev__nm">Diya's iPad</span><span class="scr-dev__meta"><span class="scr-dev__online"><span class="d"></span>Online</span> · iPadOS</span></span><i class="ph ph-caret-right" style="color:var(--ink-300)"></i></div>
+                    <div class="scr-sh">Content categories</div>
+                    <div class="scr-cat is-on"><span class="scr-cat__ic"><i class="ph-fill ph-eye-slash"></i></span><span style="flex:1"><span class="scr-cat__nm">Adult content</span><span class="scr-cat__st">Blocked</span></span><span class="scr-sw"><span class="scr-sw__k"></span></span></div>
+                    <div class="scr-cat is-on"><span class="scr-cat__ic"><i class="ph-fill ph-chats-circle"></i></span><span style="flex:1"><span class="scr-cat__nm">Social media</span><span class="scr-cat__st">Blocked</span></span><span class="scr-sw"><span class="scr-sw__k"></span></span></div>
+                    <div class="scr-cat"><span class="scr-cat__ic"><i class="ph-fill ph-game-controller"></i></span><span style="flex:1"><span class="scr-cat__nm">Gaming</span><span class="scr-cat__st">Allowed</span></span><span class="scr-sw"><span class="scr-sw__k"></span></span></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Screen 1: Activity -->
+              <div class="tour-screen">
+                <div class="scr">
+                  <div class="scr__bar"><span>9:41</span><span><i class="ph-fill ph-cell-signal-full"></i><i class="ph-fill ph-wifi-high"></i><i class="ph-fill ph-battery-high"></i></span></div>
+                  <div class="scr__body">
+                    <div class="scr__greet">Aarav's iPhone</div>
+                    <div class="scr__title">Last 7 days</div>
+                    <div class="scr-stat">
+                      <div class="scr-stat__c"><div class="scr-stat__n" style="color:var(--allow)">1,284</div><div class="scr-stat__l">Allowed</div></div>
+                      <div class="scr-stat__c"><div class="scr-stat__n" style="color:var(--block)">312</div><div class="scr-stat__l">Blocked</div></div>
+                    </div>
+                    <div class="scr-sh">Top domains</div>
+                    <div class="scr-hrow"><span class="scr-hrow__fav">Y</span><span style="flex:1"><span class="scr-hrow__dm">youtube.com</span><span class="scr-hrow__ct">420 queries</span></span><span class="scr-pill scr-pill--ok">Allowed</span></div>
+                    <div class="scr-hrow"><span class="scr-hrow__fav">I</span><span style="flex:1"><span class="scr-hrow__dm">instagram.com</span><span class="scr-hrow__ct">96 attempts</span></span><span class="scr-pill scr-pill--no">Blocked</span></div>
+                    <div class="scr-hrow"><span class="scr-hrow__fav">W</span><span style="flex:1"><span class="scr-hrow__dm">wikipedia.org</span><span class="scr-hrow__ct">210 queries</span></span><span class="scr-pill scr-pill--ok">Allowed</span></div>
+                    <div class="scr-hrow"><span class="scr-hrow__fav">R</span><span style="flex:1"><span class="scr-hrow__dm">reddit.com</span><span class="scr-hrow__ct">54 attempts</span></span><span class="scr-pill scr-pill--no">Blocked</span></div>
+                    <div class="scr-hrow"><span class="scr-hrow__fav">G</span><span style="flex:1"><span class="scr-hrow__dm">github.com</span><span class="scr-hrow__ct">88 queries</span></span><span class="scr-pill scr-pill--ok">Allowed</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Screen 2: Setup -->
+              <div class="tour-screen">
+                <div class="scr">
+                  <div class="scr__bar"><span>9:41</span><span><i class="ph-fill ph-cell-signal-full"></i><i class="ph-fill ph-wifi-high"></i><i class="ph-fill ph-battery-high"></i></span></div>
+                  <div class="scr__body">
+                    <div class="scr__greet">Step 2 of 3</div>
+                    <div class="scr__title">Set up Diya's iPad</div>
+                    <div style="margin-top:14px;"></div>
+                    <div class="scr-field">
+                      <div class="scr-field__l">Private DNS address</div>
+                      <div class="scr-field__row"><span class="scr-field__v">a1b9f2.dns.bastion.app</span><i class="ph ph-copy scr-field__cp"></i></div>
+                    </div>
+                    <div class="scr-bigbtn"><i class="ph-fill ph-download-simple"></i> Download profile</div>
+                    <div class="scr-sh">Then on the device</div>
+                    <div class="scr-step"><span class="scr-step__n">1</span><span class="scr-step__t">Open the profile in Safari and tap <b>Allow</b>.</span></div>
+                    <div class="scr-step"><span class="scr-step__n">2</span><span class="scr-step__t">Settings → Profile Downloaded → <b>Install</b>.</span></div>
+                    <div class="scr-step"><span class="scr-step__n">3</span><span class="scr-step__t">Lock it behind your Screen Time passcode.</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Screen 3: Business -->
+              <div class="tour-screen">
+                <div class="scr scr--sme">
+                  <div class="scr__bar"><span>9:41</span><span><i class="ph-fill ph-cell-signal-full"></i><i class="ph-fill ph-wifi-high"></i><i class="ph-fill ph-battery-high"></i></span></div>
+                  <div class="scr__body">
+                    <div class="scr__greet">Northwind Studio</div>
+                    <div class="scr__title">Company dashboard</div>
+                    <div class="scr-stat">
+                      <div class="scr-stat__c"><div class="scr-stat__n">18</div><div class="scr-stat__l">Devices</div></div>
+                      <div class="scr-stat__c"><div class="scr-stat__n">2,940</div><div class="scr-stat__l">Blocked today</div></div>
+                    </div>
+                    <div class="scr-sh">Company rules</div>
+                    <div class="scr-cat is-on"><span class="scr-cat__ic"><i class="ph-fill ph-chats-circle"></i></span><span style="flex:1"><span class="scr-cat__nm">Social media</span><span class="scr-cat__st">Blocked</span></span><span class="scr-sw"><span class="scr-sw__k"></span></span></div>
+                    <div class="scr-cat is-on"><span class="scr-cat__ic"><i class="ph-fill ph-poker-chip"></i></span><span style="flex:1"><span class="scr-cat__nm">Gambling</span><span class="scr-cat__st">Blocked</span></span><span class="scr-sw"><span class="scr-sw__k"></span></span></div>
+                    <div class="scr-cat"><span class="scr-cat__ic"><i class="ph-fill ph-television"></i></span><span style="flex:1"><span class="scr-cat__nm">Streaming</span><span class="scr-cat__st">Allowed</span></span><span class="scr-sw"><span class="scr-sw__k"></span></span></div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="tour-dots" id="tourDots">
+            <button class="tour-dot is-active" onclick="setTour(0)" aria-label="Screen 1"></button>
+            <button class="tour-dot" onclick="setTour(1)" aria-label="Screen 2"></button>
+            <button class="tour-dot" onclick="setTour(2)" aria-label="Screen 3"></button>
+            <button class="tour-dot" onclick="setTour(3)" aria-label="Screen 4"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== WHO IT'S FOR ============================== -->
+  <section class="section section--tight" id="who" style="background:var(--bg);">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Who it's for</span>
+        <h2>One filtering engine. Three ways to use it.</h2>
+        <p class="lead">Start with a single family device and grow all the way to a dedicated, isolated instance for your business.</p>
+      </div>
+      <div class="aud">
+        <div class="aud__card aud__card--family reveal">
+          <span class="aud__tag">Family</span>
+          <h3>For parents</h3>
+          <p>Keep teenagers' phones and tablets free of adult content and endless scrolling — without fighting over the device.</p>
+          <ul class="aud__list">
+            <li><i class="ph-fill ph-check-circle"></i> Unlimited devices, one account</li>
+            <li><i class="ph-fill ph-check-circle"></i> Block adult, social, gaming, streaming</li>
+            <li><i class="ph-fill ph-check-circle"></i> 7-day history per device</li>
+          </ul>
+          <div class="aud__foot">
+            <div class="aud__price"><b>₹199</b> / month</div>
+            <a class="aud__more" href="pricing.html">See family plan <i class="ph ph-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="aud__card aud__card--team reveal">
+          <span class="aud__tag">Business · SME</span>
+          <h3>For teams</h3>
+          <p>Apply productivity rules across employee devices, onboard with a profile push, and report on activity per person.</p>
+          <ul class="aud__list">
+            <li><i class="ph-fill ph-check-circle"></i> Company-wide category rules</li>
+            <li><i class="ph-fill ph-check-circle"></i> MDM profile for company iPhones</li>
+            <li><i class="ph-fill ph-check-circle"></i> Per-employee activity reports</li>
+          </ul>
+          <div class="aud__foot">
+            <div class="aud__price"><b>₹599</b> / month</div>
+            <a class="aud__more" href="pricing.html">See business plan <i class="ph ph-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="aud__card aud__card--ent reveal">
+          <span class="aud__tag">Enterprise</span>
+          <h3>For privacy-first orgs</h3>
+          <p>Your own isolated instance on a dedicated VPS. Full traffic isolation for compliance-sensitive teams in finance, health and legal.</p>
+          <ul class="aud__list">
+            <li><i class="ph-fill ph-check-circle"></i> Unlimited devices, your own VPS</li>
+            <li><i class="ph-fill ph-check-circle"></i> Dedicated, isolated instance</li>
+            <li><i class="ph-fill ph-check-circle"></i> Filtering beyond DNS</li>
+          </ul>
+          <div class="aud__foot">
+            <div class="aud__price">Custom quote</div>
+            <a class="aud__more" href="pricing.html">Talk to us <i class="ph ph-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== FEATURES ============================== -->
+  <section class="section" id="features">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Features</span>
+        <h2>Everything you need to draw the line.</h2>
+        <p class="lead">Thoughtful defaults out of the box, with the controls to go further when you need them.</p>
+      </div>
+      <div class="feat">
+        <div class="feat__item reveal"><span class="feat__ic"><i class="ph-fill ph-squares-four"></i></span><div><h4>Category blocking</h4><p>One tap to block adult content, social media, gambling, gaming and streaming — curated, maintained blocklists.</p></div></div>
+        <div class="feat__item reveal"><span class="feat__ic"><i class="ph-fill ph-prohibit"></i></span><div><h4>Custom site blocks</h4><p>Block or allow any specific domain, per device or across the whole account, in seconds.</p></div></div>
+        <div class="feat__item reveal"><span class="feat__ic"><i class="ph-fill ph-clock-counter-clockwise"></i></span><div><h4>7-day history</h4><p>See top domains, what was allowed and what was blocked — grouped and readable, per device.</p></div></div>
+        <div class="feat__item reveal"><span class="feat__ic"><i class="ph-fill ph-fingerprint"></i></span><div><h4>Per-device isolation</h4><p>Every device gets a private address, so rules and history never get mixed up between them.</p></div></div>
+        <div class="feat__item reveal"><span class="feat__ic"><i class="ph-fill ph-device-mobile-camera"></i></span><div><h4>MDM &amp; BYOD setup</h4><p>Push a profile to company iPhones via Apple Business Manager, or send a guided link for personal devices.</p></div></div>
+        <div class="feat__item reveal"><span class="feat__ic"><i class="ph-fill ph-chart-bar"></i></span><div><h4>Activity reports</h4><p>Per-employee summaries for business accounts, exportable for review — no spreadsheets required.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== PLATFORMS ============================== -->
+  <section class="section section--tight" style="background:var(--bg);">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Works everywhere</span>
+        <h2>Every device your family or team actually uses.</h2>
+      </div>
+      <div class="plats reveal">
+        <div class="plat"><i class="ph-fill ph-apple-logo"></i> iPhone &amp; iPad <small>One-tap profile</small></div>
+        <div class="plat"><i class="ph-fill ph-android-logo"></i> Android <small>Samsung · Xiaomi · OnePlus · Oppo &amp; more</small></div>
+        <div class="plat"><i class="ph-fill ph-desktop"></i> macOS <small>Guided setup</small></div>
+        <div class="plat"><i class="ph-fill ph-windows-logo"></i> Windows <small>Guided setup</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== HONESTY ============================== -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Straight talk</span>
+        <h2>What Bastion can and can't do.</h2>
+        <p class="lead">Filtering is a strong layer, not a magic wall. We'd rather you know exactly where the edges are.</p>
+      </div>
+      <div class="honest reveal">
+        <div class="honest__cols">
+          <div class="honest__col can">
+            <div class="honest__h can"><i class="ph-fill ph-check-circle"></i> What it does well</div>
+            <ul class="honest__list">
+              <li><i class="ph-fill ph-check"></i> Blocks entire categories and specific sites across every device, on Wi-Fi and mobile data.</li>
+              <li><i class="ph-fill ph-check"></i> Neutralises Apple iCloud Private Relay so it can't quietly route around your rules.</li>
+              <li><i class="ph-fill ph-check"></i> Locks tight on company-managed iPhones — MDM profiles can't be removed by the user.</li>
+              <li><i class="ph-fill ph-check"></i> Gives you a clear, per-device record of what was reached and what was blocked.</li>
+            </ul>
+          </div>
+          <div class="honest__col cant">
+            <div class="honest__h cant"><i class="ph-fill ph-warning-circle"></i> Where the limits are</div>
+            <ul class="honest__list">
+              <li><i class="ph-fill ph-minus"></i> Someone who can change a device's DNS setting can bypass filtering — protect it with a Screen Time or device PIN.</li>
+              <li><i class="ph-fill ph-minus"></i> A VPN app installed on the device tunnels around DNS. Restrict VPN installs to keep rules intact.</li>
+              <li><i class="ph-fill ph-minus"></i> On personal (BYOD) devices, enforcement relies on trust — company-issued devices give the strongest control.</li>
+            </ul>
+            <p style="margin-top:18px; font-size:13.5px; color:var(--ink-400);">A bypass-resistant Android app is on our roadmap.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== PRICING TEASER ============================== -->
+  <section class="section section--tight" style="background:var(--bg);">
+    <div class="wrap">
+      <div class="section-head reveal" style="max-width:760px;">
+        <span class="eyebrow">Simple pricing</span>
+        <h2>Start at ₹199. Scale to your own VPS.</h2>
+        <p class="lead">Family, business and enterprise — monthly or annual, no hidden fees. Pay only for the devices you protect.</p>
+        <div style="margin-top:26px; display:flex; gap:14px; flex-wrap:wrap;">
+          <a class="btn btn--primary btn--lg" href="pricing.html">See full pricing <i class="ph ph-arrow-right"></i></a>
+          <a class="btn btn--ghost btn--lg" href="mailto:vasusheoran92@gmail.com?subject=Bastion%20enterprise%20enquiry">Enterprise enquiry</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== FAQ ============================== -->
+  <section class="section" id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">FAQ</span>
+        <h2>Questions, answered.</h2>
+      </div>
+      <div class="faq">
+        <details class="faq__item reveal" open><summary>Do I need to install an app on every device? <i class="ph ph-plus"></i></summary><p>No. Bastion works by changing a device's DNS settings — on iOS and macOS you install a small configuration profile, and on Android you set a Private DNS hostname. We give you guided, device-specific steps for each one.</p></details>
+        <details class="faq__item reveal"><summary>Does it work on mobile data, or only Wi-Fi? <i class="ph ph-plus"></i></summary><p>Both. Because filtering happens at the DNS level on the device itself, your rules follow the device whether it's on home Wi-Fi, school Wi-Fi or cellular data.</p></details>
+        <details class="faq__item reveal"><summary>Can my child or employee just turn it off? <i class="ph ph-plus"></i></summary><p>On a device where they can freely change DNS settings, yes — so we recommend protecting those settings with a Screen Time passcode (iOS) or device restrictions (Android). On company-managed iPhones enrolled via MDM, the profile cannot be removed by the user.</p></details>
+        <details class="faq__item reveal"><summary>What's the difference between the business and enterprise plans? <i class="ph ph-plus"></i></summary><p>Business plans (SME) run on a shared, secure cloud instance and cover up to 29 devices with per-employee reporting. Enterprise gives you a dedicated, isolated VPS with filtering beyond DNS — built for compliance-sensitive teams.</p></details>
+        <details class="faq__item reveal"><summary>How is my data handled? <i class="ph ph-plus"></i></summary><p>We keep only what's needed to show you the dashboard — a rolling 7-day query history per device. Enterprise customers can run on their own isolated instance for full data control.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== CTA BAND ============================== -->
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="ctaband reveal">
+        <div class="ctaband__in">
+          <h2>Take back control of the connection.</h2>
+          <p>Join the private beta and be among the first families and teams running on Bastion.</p>
+          <div class="btns">
+            <a class="btn btn--onteal btn--lg" href="mailto:vasusheoran92@gmail.com?subject=Bastion%20early%20access">Get early access <i class="ph ph-arrow-right"></i></a>
+            <a class="btn btn--onteal-ghost btn--lg" href="#tour">Take the tour</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== FOOTER ============================== -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__grid">
+        <div>
+          <a class="brand" href="index.html">
+            <svg class="brand__mark" viewBox="0 0 30 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M15 1.5 L27.5 6 V16.5 C27.5 25 21.8 30.4 15 32.5 C8.2 30.4 2.5 25 2.5 16.5 V6 Z" fill="#0e8088"/>
+              <path d="M9.5 17 l3.6 3.6 L21 12.6" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Bastion
+          </a>
+          <p class="footer__about">DNS-based content filtering for families and teams. No hardware, no fuss — a calmer internet on the devices you care about.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Product</h4>
+          <a href="#how">How it works</a>
+          <a href="#features">Features</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="#tour">Product tour</a>
+        </div>
+        <div class="footer__col">
+          <h4>Use cases</h4>
+          <a href="#who">For parents</a>
+          <a href="#who">For teams</a>
+          <a href="#who">For enterprise</a>
+          <a href="#faq">FAQ</a>
+        </div>
+        <div class="footer__col">
+          <h4>Get in touch</h4>
+          <a href="mailto:vasusheoran92@gmail.com">Email us</a>
+          <a href="mailto:vasusheoran92@gmail.com?subject=Bastion%20early%20access">Request early access</a>
+          <a href="mailto:vasusheoran92@gmail.com?subject=Bastion%20enterprise%20enquiry">Enterprise enquiry</a>
+        </div>
+      </div>
+      <div class="footer__bar">
+        <span>© 2026 Bastion. All rights reserved.</span>
+        <span class="mono">bastion.codeunbound.dev</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Product tour switcher
+    function setTour(i) {
+      document.querySelectorAll('#tourTabs .tour-tab').forEach((t, n) => t.classList.toggle('is-active', n === i));
+      document.querySelectorAll('.tour-screen').forEach((s, n) => s.classList.toggle('is-active', n === i));
+      document.querySelectorAll('#tourDots .tour-dot').forEach((d, n) => d.classList.toggle('is-active', n === i));
+    }
+
+    // Nav shadow on scroll
+    const nav = document.getElementById('nav');
+    const onScroll = () => nav.classList.toggle('is-stuck', window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+  </script>
+</body>
+</html>
