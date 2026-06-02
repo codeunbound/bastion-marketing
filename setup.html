@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Set up Bastion on this device — Bastion</title>
+  <meta name="description" content="Guided setup for Bastion content filtering. Configure Private DNS on Android, or install the configuration profile on iPhone, iPad, Mac and Windows — takes about two minutes." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+  <link rel="stylesheet" href="site.css" />
+
+  <style>
+    /* ============================================================
+       Setup page — built on the marketing tokens in site.css
+       ============================================================ */
+    .su-hero { background: radial-gradient(120% 80% at 80% -10%, #eaf5f4 0%, rgba(234,245,244,0) 55%), var(--bg-2); padding: clamp(40px, 6vw, 72px) 0 clamp(20px, 3vw, 30px); }
+    .su-hero__in { max-width: 760px; margin: 0 auto; text-align: center; }
+    .su-hero h1 { font-size: clamp(30px, 4.6vw, 46px); margin-top: 18px; }
+    .su-hero .lead { margin: 16px auto 0; max-width: 560px; font-size: clamp(16px, 2vw, 19px); color: var(--ink-500); }
+
+    .su-body { max-width: 760px; margin: 0 auto; padding-bottom: clamp(56px, 8vw, 100px); }
+
+    /* detected banner */
+    .su-detect { display: flex; align-items: center; gap: 13px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md); padding: 14px 18px; box-shadow: var(--sh-1); margin-top: clamp(28px, 4vw, 40px); }
+    .su-detect__ic { width: 42px; height: 42px; border-radius: 12px; flex: 0 0 auto; display: grid; place-items: center; font-size: 22px; background: var(--teal-50); color: var(--teal-600); }
+    .su-detect__tx { flex: 1; min-width: 0; }
+    .su-detect__tx b { display: block; font-size: 15.5px; font-weight: 800; }
+    .su-detect__tx span { display: block; font-size: 13.5px; color: var(--ink-500); font-weight: 600; margin-top: 1px; }
+
+    /* tabs */
+    .su-tabs { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 18px; }
+    .su-tab { display: inline-flex; align-items: center; gap: 9px; font-family: var(--font); font-weight: 700; font-size: 14.5px; color: var(--ink-700); background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-pill); padding: 9px 16px; cursor: pointer; box-shadow: var(--sh-1); transition: border-color .15s ease, background .15s ease, color .15s ease; }
+    .su-tab i { font-size: 18px; color: var(--ink-400); transition: color .15s ease; }
+    .su-tab:hover { border-color: var(--ink-300); }
+    .su-tab.is-active { background: var(--teal-600); border-color: var(--teal-600); color: #fff; box-shadow: var(--sh-teal); }
+    .su-tab.is-active i { color: #fff; }
+    .su-tab .su-tab__det { width: 6px; height: 6px; border-radius: 50%; background: var(--teal-500); }
+
+    /* panel */
+    .su-panel { display: none; margin-top: 22px; }
+    .su-panel.is-active { display: block; }
+
+    .su-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); box-shadow: var(--sh-1); overflow: hidden; }
+    .su-card__head { display: flex; align-items: center; gap: 14px; padding: 22px clamp(22px, 4vw, 30px); border-bottom: 1px solid var(--line-2); }
+    .su-card__ic { width: 50px; height: 50px; border-radius: 14px; flex: 0 0 auto; display: grid; place-items: center; font-size: 26px; background: var(--teal-50); color: var(--teal-600); }
+    .su-card__head h2 { font-size: 21px; font-weight: 800; }
+    .su-card__head p { font-size: 14px; color: var(--ink-500); font-weight: 600; margin-top: 2px; }
+    .su-card__body { padding: clamp(22px, 4vw, 30px); }
+
+    /* steps */
+    .su-steps { list-style: none; margin: 0 0 4px; padding: 0; counter-reset: s; }
+    .su-step { display: flex; gap: 15px; padding-bottom: 22px; position: relative; }
+    .su-step:last-child { padding-bottom: 0; }
+    .su-step__n { width: 30px; height: 30px; border-radius: 50%; flex: 0 0 auto; display: grid; place-items: center; background: var(--teal-50); color: var(--teal-700); font-weight: 800; font-size: 14px; font-family: var(--mono); }
+    /* connector line */
+    .su-step:not(:last-child)::before { content: ""; position: absolute; left: 15px; top: 34px; bottom: 8px; width: 2px; background: var(--line); transform: translateX(-1px); }
+    .su-step__tx { padding-top: 4px; }
+    .su-step__tx b { font-size: 16px; font-weight: 700; color: var(--ink-900); display: block; line-height: 1.35; }
+    .su-step__tx p { font-size: 14px; color: var(--ink-500); font-weight: 600; margin-top: 4px; line-height: 1.45; }
+    .su-kbd { font-family: var(--mono); font-size: 0.92em; font-weight: 500; background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 1px 6px; color: var(--ink-700); white-space: nowrap; }
+
+    /* action block */
+    .su-action { margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--line-2); }
+    .su-action__l { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-400); margin-bottom: 10px; }
+
+    .su-copy { display: flex; align-items: center; gap: 10px; background: var(--bg); border: 1px solid var(--line); border-radius: var(--r-md); padding: 6px 6px 6px 16px; }
+    .su-copy__v { flex: 1; min-width: 0; font-family: var(--mono); font-size: 15px; font-weight: 500; color: var(--teal-700); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+    /* lock-down callout */
+    .su-lock { margin-top: 22px; background: var(--teal-50); border: 1px solid var(--teal-100); border-radius: var(--r-md); padding: 18px 20px; }
+    .su-lock__h { display: flex; align-items: center; gap: 9px; font-size: 15.5px; font-weight: 800; color: var(--ink-900); }
+    .su-lock__h i { color: var(--teal-700); font-size: 20px; }
+    .su-lock__intro { font-size: 13.5px; font-weight: 600; color: var(--ink-500); margin-top: 6px; line-height: 1.45; }
+    .su-lock__opts { display: flex; flex-direction: column; gap: 12px; margin-top: 15px; }
+    .su-lock__opt { display: flex; gap: 12px; align-items: flex-start; }
+    .su-lock__opt > i { width: 34px; height: 34px; border-radius: 10px; flex: 0 0 auto; display: grid; place-items: center; background: #fff; color: var(--teal-700); font-size: 17px; }
+    .su-lock__opt b { display: block; font-size: 14.5px; font-weight: 700; color: var(--ink-900); line-height: 1.3; }
+    .su-lock__opt span { display: block; font-size: 13px; font-weight: 600; color: var(--ink-500); line-height: 1.45; margin-top: 2px; }
+
+    /* verify + secure note */
+    .su-verify { display: flex; align-items: center; gap: 11px; padding: 13px 16px; background: var(--allow-50); border-radius: var(--r-md); margin-top: 20px; }
+    .su-verify i { color: var(--allow); font-size: 20px; flex: 0 0 auto; }
+    .su-verify span { font-size: 13.5px; font-weight: 600; color: var(--ink-700); line-height: 1.4; }
+
+    /* token / help footer of the card stack */
+    .su-help { margin-top: 26px; text-align: center; font-size: 14px; color: var(--ink-500); font-weight: 600; }
+    .su-help a { color: var(--teal-700); font-weight: 700; }
+
+    /* no-token banner */
+    .su-notoken { display: none; align-items: flex-start; gap: 12px; background: var(--block-50); border: 1px solid #f0dcb4; border-radius: var(--r-md); padding: 14px 18px; margin-top: 22px; }
+    .su-notoken.show { display: flex; }
+    .su-notoken i { color: var(--block); font-size: 20px; flex: 0 0 auto; margin-top: 1px; }
+    .su-notoken p { font-size: 13.5px; font-weight: 600; color: var(--ink-700); line-height: 1.5; }
+    .su-notoken b { color: var(--ink-900); }
+
+    /* one-time-code caveat (shown when a real token is present) */
+    .su-onetime { display: none; align-items: flex-start; gap: 12px; background: var(--teal-50); border: 1px solid var(--teal-100); border-radius: var(--r-md); padding: 15px 18px; margin-top: 22px; }
+    .su-onetime.show { display: flex; }
+    .su-onetime i { color: var(--teal-700); font-size: 21px; flex: 0 0 auto; margin-top: 1px; }
+    .su-onetime b { display: block; font-size: 14.5px; font-weight: 800; color: var(--ink-900); }
+    .su-onetime p { font-size: 13px; font-weight: 600; color: var(--ink-500); line-height: 1.5; margin-top: 3px; }
+    .su-onetime p strong { color: var(--ink-900); }
+
+    .btn--copied { background: var(--allow) !important; box-shadow: none !important; }
+  </style>
+</head>
+<body>
+
+  <!-- ============================== NAV ============================== -->
+  <header class="nav" id="nav">
+    <div class="wrap nav__in">
+      <a class="brand" href="index.html" data-screen-label="logo">
+        <svg class="brand__mark" viewBox="0 0 30 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M15 1.5 L27.5 6 V16.5 C27.5 25 21.8 30.4 15 32.5 C8.2 30.4 2.5 25 2.5 16.5 V6 Z" fill="#0e8088"/>
+          <path d="M9.5 17 l3.6 3.6 L21 12.6" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Bastion
+      </a>
+      <nav class="nav__links">
+        <a href="index.html#how">How it works</a>
+        <a href="index.html#who">Who it's for</a>
+        <a href="index.html#features">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="index.html#faq">FAQ</a>
+      </nav>
+      <div class="nav__spacer"></div>
+      <div class="nav__cta">
+        <a class="btn btn--ghost btn--sm" href="index.html#tour">See it in action</a>
+        <a class="btn btn--primary btn--sm" href="/cdn-cgi/l/email-protection#2f594e5c5a5c474a405d4e41161d6f48424e4643014c4042105c5a4d454a4c5b126d4e5c5b4640410a1d1f4a4e5d43560a1d1f4e4c4c4a5c5c">Get early access</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================== HERO ============================== -->
+  <section class="su-hero">
+    <div class="wrap su-hero__in">
+      <span class="eyebrow"><i class="ph-fill ph-shield-check"></i> Device setup</span>
+      <h1 data-screen-label="setup-title">Set up Bastion on this device</h1>
+      <p class="lead">Two minutes, no app to install. Follow the steps for the device you're holding — Bastion starts filtering as soon as you finish.</p>
+    </div>
+  </section>
+
+  <!-- ============================== BODY ============================== -->
+  <main class="wrap su-body" data-screen-label="setup">
+
+    <!-- detected device -->
+    <div class="su-detect">
+      <span class="su-detect__ic"><i class="ph-fill ph-magic-wand" id="detIc"></i></span>
+      <div class="su-detect__tx">
+        <b id="detName">Detecting your device…</b>
+        <span id="detSub">Pick your device below if this looks wrong.</span>
+      </div>
+    </div>
+
+    <!-- platform tabs -->
+    <div class="su-tabs" id="suTabs" role="tablist">
+      <button class="su-tab" data-pl="android" role="tab"><i class="ph-fill ph-android-logo"></i> Android</button>
+      <button class="su-tab" data-pl="ios" role="tab"><i class="ph-fill ph-apple-logo"></i> iPhone &amp; iPad</button>
+      <button class="su-tab" data-pl="macos" role="tab"><i class="ph-fill ph-laptop"></i> Mac</button>
+      <button class="su-tab" data-pl="windows" role="tab"><i class="ph-fill ph-windows-logo"></i> Windows</button>
+    </div>
+
+    <!-- no-token banner -->
+    <div class="su-notoken" id="noToken">
+      <i class="ph-fill ph-info"></i>
+      <p>This page is showing an <b>example address</b>. To get the one for your device, open the setup link from your Bastion dashboard (or scan the QR shown there) on this device — your unique address fills in automatically.</p>
+    </div>
+
+    <!-- one-time-code caveat (real token present) -->
+    <div class="su-onetime" id="oneTime">
+      <i class="ph-duotone ph-shield-check"></i>
+      <div>
+        <b>This is a one-time setup code</b>
+        <p>Finish setup <strong>on the device you want to protect</strong> — that's the device you're configuring right now. The address works once and expires in 24&nbsp;hours; after install it's locked to this device.</p>
+      </div>
+    </div>
+
+    <!-- ============ ANDROID ============ -->
+    <section class="su-panel" data-pl="android" role="tabpanel">
+      <div class="su-card">
+        <div class="su-card__head">
+          <span class="su-card__ic"><i class="ph-fill ph-android-logo"></i></span>
+          <div>
+            <h2>Android — Private DNS</h2>
+            <p>Works on every Android phone, regardless of brand or skin.</p>
+          </div>
+        </div>
+        <div class="su-card__body">
+          <ol class="su-steps">
+            <li class="su-step"><span class="su-step__n">1</span><div class="su-step__tx"><b>Open Settings</b><p>Tap <span class="su-kbd">Network &amp; internet</span> → <span class="su-kbd">Private DNS</span>. On Samsung it's under <span class="su-kbd">Connections</span> → <span class="su-kbd">More connection settings</span>. Can't find it? Search <span class="su-kbd">Private DNS</span> in Settings.</p></div></li>
+            <li class="su-step"><span class="su-step__n">2</span><div class="su-step__tx"><b>Choose "Private DNS provider hostname"</b><p>Some phones label it "Designated Private DNS".</p></div></li>
+            <li class="su-step"><span class="su-step__n">3</span><div class="su-step__tx"><b>Paste the hostname below, then tap Save</b><p>That's it — no app, no profile to download.</p></div></li>
+          </ol>
+
+          <div class="su-action">
+            <div class="su-action__l">Your Private DNS hostname</div>
+            <div class="su-copy">
+              <span class="su-copy__v" id="androidHost">device.dns.bastion.app</span>
+              <button class="btn btn--primary btn--sm su-copybtn" data-copy="androidHost"><i class="ph ph-copy"></i> Copy</button>
+            </div>
+          </div>
+
+          <div class="su-verify">
+            <i class="ph-fill ph-check-circle"></i>
+            <span>To confirm it's working, visit any blocked site — you'll see Bastion's block page instead.</span>
+          </div>
+
+          <div class="su-lock">
+            <div class="su-lock__h"><i class="ph-fill ph-shield-check"></i> Keep it from being switched off</div>
+            <p class="su-lock__intro">Anyone can change Private DNS in Settings. To lock it down, pick one:</p>
+            <div class="su-lock__opts">
+              <div class="su-lock__opt"><i class="ph-fill ph-user-switch"></i><div><b>Set up a Guest profile</b><span>Hand the child a restricted user that can't reach DNS settings.</span></div></div>
+              <div class="su-lock__opt"><i class="ph-fill ph-lock-key"></i><div><b>Install a third-party App Locker</b><span>Lock the Settings app behind a PIN — plenty of free options on the Play Store.</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ iOS ============ -->
+    <section class="su-panel" data-pl="ios" role="tabpanel">
+      <div class="su-card">
+        <div class="su-card__head">
+          <span class="su-card__ic"><i class="ph-fill ph-apple-logo"></i></span>
+          <div>
+            <h2>iPhone &amp; iPad — Configuration profile</h2>
+            <p>A one-tap profile sets secure DNS for the whole device.</p>
+          </div>
+        </div>
+        <div class="su-card__body">
+          <ol class="su-steps">
+            <li class="su-step"><span class="su-step__n">1</span><div class="su-step__tx"><b>Download the profile below</b><p>Open this page in <span class="su-kbd">Safari</span> — Chrome and other browsers can't install profiles.</p></div></li>
+            <li class="su-step"><span class="su-step__n">2</span><div class="su-step__tx"><b>Open Settings — tap "Profile Downloaded"</b><p>It appears near the top, just under your name.</p></div></li>
+            <li class="su-step"><span class="su-step__n">3</span><div class="su-step__tx"><b>Tap Install and enter the passcode</b><p>Confirm once more and you're protected.</p></div></li>
+          </ol>
+
+          <div class="su-action">
+            <div class="su-action__l">Configuration profile</div>
+            <button class="btn btn--primary btn--lg su-dlbtn" id="iosDl" style="width:100%; justify-content:center;"><i class="ph ph-download-simple"></i> <span>Download <span class="mono" id="iosFile">bastion-device.mobileconfig</span></span></button>
+          </div>
+
+          <div class="su-lock">
+            <div class="su-lock__h"><i class="ph-fill ph-shield-check"></i> Lock it with Screen Lock</div>
+            <p class="su-lock__intro">So the profile can't simply be removed again:</p>
+            <div class="su-lock__opts">
+              <div class="su-lock__opt"><i class="ph-fill ph-lock-simple"></i><div><b>Turn on Screen Time</b><span>Set a Screen Time passcode, then block changes under Content &amp; Privacy Restrictions → the profile can't be deleted without it.</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MAC ============ -->
+    <section class="su-panel" data-pl="macos" role="tabpanel">
+      <div class="su-card">
+        <div class="su-card__head">
+          <span class="su-card__ic"><i class="ph-fill ph-laptop"></i></span>
+          <div>
+            <h2>Mac — Configuration profile</h2>
+            <p>The same profile, installed from System Settings.</p>
+          </div>
+        </div>
+        <div class="su-card__body">
+          <ol class="su-steps">
+            <li class="su-step"><span class="su-step__n">1</span><div class="su-step__tx"><b>Download the profile below</b></div></li>
+            <li class="su-step"><span class="su-step__n">2</span><div class="su-step__tx"><b>Open System Settings → General → Device Management</b><p>The downloaded profile waits there for review.</p></div></li>
+            <li class="su-step"><span class="su-step__n">3</span><div class="su-step__tx"><b>Select the Bastion profile and click Install</b><p>Enter the Mac's password to confirm.</p></div></li>
+          </ol>
+
+          <div class="su-action">
+            <div class="su-action__l">Configuration profile</div>
+            <button class="btn btn--primary btn--lg su-dlbtn" id="macDl" style="width:100%; justify-content:center;"><i class="ph ph-download-simple"></i> <span>Download <span class="mono" id="macFile">bastion-device.mobileconfig</span></span></button>
+          </div>
+
+          <div class="su-verify">
+            <i class="ph-fill ph-check-circle"></i>
+            <span>For a shared family Mac, set up the child as a Standard (non-admin) user so the profile can't be removed.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WINDOWS ============ -->
+    <section class="su-panel" data-pl="windows" role="tabpanel">
+      <div class="su-card">
+        <div class="su-card__head">
+          <span class="su-card__ic"><i class="ph-fill ph-windows-logo"></i></span>
+          <div>
+            <h2>Windows — Encrypted DNS (DoH)</h2>
+            <p>Set secure DNS in Windows 11 or 10 network settings.</p>
+          </div>
+        </div>
+        <div class="su-card__body">
+          <ol class="su-steps">
+            <li class="su-step"><span class="su-step__n">1</span><div class="su-step__tx"><b>Open Settings → Network &amp; internet → DNS server assignment</b><p>Click <span class="su-kbd">Edit</span> next to your active Wi-Fi or Ethernet connection.</p></div></li>
+            <li class="su-step"><span class="su-step__n">2</span><div class="su-step__tx"><b>Set to Manual, turn on IPv4</b><p>Set DNS encryption to <span class="su-kbd">Encrypted only (DNS over HTTPS)</span>.</p></div></li>
+            <li class="su-step"><span class="su-step__n">3</span><div class="su-step__tx"><b>Paste the DoH template below, then Save</b></div></li>
+          </ol>
+
+          <div class="su-action">
+            <div class="su-action__l">DNS-over-HTTPS template</div>
+            <div class="su-copy">
+              <span class="su-copy__v" id="winTemplate">https://dns.bastion.app/dns-query/device</span>
+              <button class="btn btn--primary btn--sm su-copybtn" data-copy="winTemplate"><i class="ph ph-copy"></i> Copy</button>
+            </div>
+          </div>
+
+          <div class="su-verify">
+            <i class="ph-fill ph-check-circle"></i>
+            <span>Use a Standard (non-admin) Windows account on shared PCs so the setting can't be changed back.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="su-help">
+      Managing devices for a family or team? <a href="index.html#tour">See the dashboard</a> · <a href="/cdn-cgi/l/email-protection#0e786f7d7b7d666b617c6f60373c4e69636f6762206d6163317d7b6c646b6d7a334c6f7d7a6761602b3c3e7d6b7a7b7e2b3c3e666b627e">Need a hand?</a>
+    </div>
+  </main>
+
+  <!-- ============================== FOOTER ============================== -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__grid">
+        <div>
+          <a class="brand" href="index.html">
+            <svg class="brand__mark" viewBox="0 0 30 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M15 1.5 L27.5 6 V16.5 C27.5 25 21.8 30.4 15 32.5 C8.2 30.4 2.5 25 2.5 16.5 V6 Z" fill="#0e8088"/>
+              <path d="M9.5 17 l3.6 3.6 L21 12.6" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Bastion
+          </a>
+          <p class="footer__about">DNS-based content filtering for families and teams. No hardware, no fuss — a calmer internet on the devices you care about.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Product</h4>
+          <a href="index.html#how">How it works</a>
+          <a href="index.html#features">Features</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="setup.html">Device setup</a>
+        </div>
+        <div class="footer__col">
+          <h4>Use cases</h4>
+          <a href="index.html#who">For parents</a>
+          <a href="index.html#who">For teams</a>
+          <a href="index.html#who">For enterprise</a>
+          <a href="index.html#faq">FAQ</a>
+        </div>
+        <div class="footer__col">
+          <h4>Get in touch</h4>
+          <a href="/cdn-cgi/l/email-protection#e690879593958e8389948788dfd4a6818b878f8ac885898b">Email us</a>
+          <a href="/cdn-cgi/l/email-protection#aadccbd9dfd9c2cfc5d8cbc49398eacdc7cbc3c684c9c5c795d9dfc8c0cfc9de97e8cbd9dec3c5c48f989acfcbd8c6d38f989acbc9c9cfd9d9">Request early access</a>
+          <a href="/cdn-cgi/l/email-protection#f88e998b8d8b909d978a9996c1cab89f95999194d69b9795c78b8d9a929d9b8cc5ba998b8c919796ddcac89d968c9d8a888a918b9dddcac89d96898d918a81">Enterprise enquiry</a>
+        </div>
+      </div>
+      <div class="footer__bar">
+        <span>© 2026 Bastion. All rights reserved.</span>
+        <span class="mono">bastion.codeunbound.dev</span>
+      </div>
+    </div>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    (function () {
+      // ---- token: from ?t= param, else example placeholder ----
+      var params = new URLSearchParams(location.search);
+      var token = (params.get('t') || params.get('token') || '').trim();
+      var hasToken = /^[a-z0-9]{4,}$/i.test(token);
+      if (!hasToken) { token = 'device'; document.getElementById('noToken').classList.add('show'); }
+      else { document.getElementById('oneTime').classList.add('show'); }
+
+      document.getElementById('androidHost').textContent = token + '.dns.bastion.app';
+      document.getElementById('winTemplate').textContent = 'https://dns.bastion.app/dns-query/' + token;
+      var fileName = 'bastion-' + token + '.mobileconfig';
+      document.getElementById('iosFile').textContent = fileName;
+      document.getElementById('macFile').textContent = fileName;
+
+      // ---- platform detection ----
+      var PL = {
+        android: { name: 'Looks like an Android phone', sub: 'We\u2019ll set it up with Private DNS.', ic: 'ph-android-logo' },
+        ios:     { name: 'Looks like an iPhone or iPad', sub: 'We\u2019ll install a configuration profile.', ic: 'ph-apple-logo' },
+        macos:   { name: 'Looks like a Mac', sub: 'We\u2019ll install a configuration profile.', ic: 'ph-laptop' },
+        windows: { name: 'Looks like a Windows PC', sub: 'We\u2019ll set up encrypted DNS (DoH).', ic: 'ph-windows-logo' }
+      };
+      function detect() {
+        var ua = navigator.userAgent || '';
+        var plat = navigator.platform || '';
+        if (/android/i.test(ua)) return 'android';
+        if (/iphone|ipad|ipod/i.test(ua) || (/Mac/i.test(plat) && navigator.maxTouchPoints > 1)) return 'ios';
+        if (/Mac/i.test(plat) || /Macintosh/i.test(ua)) return 'macos';
+        if (/Win/i.test(plat) || /Windows/i.test(ua)) return 'windows';
+        return null;
+      }
+
+      var tabs = Array.prototype.slice.call(document.querySelectorAll('.su-tab'));
+      var panels = Array.prototype.slice.call(document.querySelectorAll('.su-panel'));
+      function select(pl) {
+        tabs.forEach(function (t) { t.classList.toggle('is-active', t.dataset.pl === pl); });
+        panels.forEach(function (p) { p.classList.toggle('is-active', p.dataset.pl === pl); });
+      }
+      tabs.forEach(function (t) { t.addEventListener('click', function () { select(t.dataset.pl); }); });
+
+      var detected = detect();
+      var det = document.getElementById('detName');
+      var detSub = document.getElementById('detSub');
+      var detIc = document.getElementById('detIc');
+      if (detected) {
+        det.textContent = PL[detected].name;
+        detSub.textContent = PL[detected].sub + ' Not right? Pick your device below.';
+        detIc.className = 'ph-fill ' + PL[detected].ic;
+        // mark the detected tab with a dot
+        tabs.forEach(function (t) {
+          if (t.dataset.pl === detected) { var d = document.createElement('span'); d.className = 'su-tab__det'; t.appendChild(d); }
+        });
+        select(detected);
+      } else {
+        det.textContent = 'Choose your device';
+        detSub.textContent = 'We couldn\u2019t detect it automatically — pick one below.';
+        detIc.className = 'ph-fill ph-devices';
+        select('android');
+      }
+
+      // ---- copy buttons ----
+      document.querySelectorAll('.su-copybtn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var val = document.getElementById(btn.dataset.copy).textContent;
+          var done = function () {
+            var orig = btn.innerHTML;
+            btn.innerHTML = '<i class="ph ph-check"></i> Copied';
+            btn.classList.add('btn--copied');
+            setTimeout(function () { btn.innerHTML = orig; btn.classList.remove('btn--copied'); }, 1800);
+          };
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(val).then(done).catch(done);
+          } else {
+            var ta = document.createElement('textarea'); ta.value = val; document.body.appendChild(ta); ta.select();
+            try { document.execCommand('copy'); } catch (e) {}
+            document.body.removeChild(ta); done();
+          }
+        });
+      });
+
+      // ---- download buttons (demo: profiles are generated server-side) ----
+      document.querySelectorAll('.su-dlbtn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var orig = btn.innerHTML;
+          btn.innerHTML = '<i class="ph ph-check"></i> <span>Profile downloaded</span>';
+          btn.classList.add('btn--copied');
+          setTimeout(function () { btn.innerHTML = orig; btn.classList.remove('btn--copied'); }, 2200);
+        });
+      });
+
+      // ---- nav shadow on scroll ----
+      var nav = document.getElementById('nav');
+      var onScroll = function () { nav.classList.toggle('is-stuck', window.scrollY > 8); };
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+  </script>
+</body>
+</html>
