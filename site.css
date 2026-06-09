@@ -186,6 +186,36 @@ p { margin: 0; }
 .aud-switch button.is-active:hover { color: #fff; }
 @media (max-width: 420px) { .aud-switch__lbl { display: none; } }
 
+/* ---------- Audience gate (landing prompt) ---------- */
+body.gate-open { overflow: hidden; }
+.aud-gate {
+  position: fixed; inset: 0; z-index: 200; display: none;
+  align-items: center; justify-content: center; padding: 24px;
+  background: rgba(15, 28, 29, .55); backdrop-filter: blur(8px) saturate(140%);
+}
+.aud-gate.is-open { display: flex; }
+.aud-gate__card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-xl);
+  box-shadow: var(--sh-3); padding: clamp(28px, 4vw, 44px); max-width: 600px; width: 100%;
+  text-align: center; animation: gate-in .3s ease;
+}
+@keyframes gate-in { from { opacity: 0; transform: translateY(10px) scale(.98); } to { opacity: 1; transform: none; } }
+.aud-gate__brand { display: inline-flex; align-items: center; gap: 9px; font-weight: 800; font-size: 18px; letter-spacing: -0.02em; margin-bottom: 18px; }
+.aud-gate__brand svg { width: 26px; height: 30px; }
+.aud-gate h2 { font-size: clamp(23px, 3.4vw, 31px); }
+.aud-gate__sub { margin-top: 12px; color: var(--ink-500); font-size: 16px; }
+.aud-gate__opts { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 28px; text-align: left; }
+@media (max-width: 520px) { .aud-gate__opts { grid-template-columns: 1fr; } }
+.aud-gate__opts button {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 4px; padding: 22px;
+  border: 1.5px solid var(--line); border-radius: var(--r-lg); background: var(--bg-2); cursor: pointer;
+  font-family: var(--font); transition: border-color .15s ease, box-shadow .2s ease, transform .12s ease, background .2s ease;
+}
+.aud-gate__opts button:hover { border-color: var(--teal-600); box-shadow: var(--sh-2); transform: translateY(-2px); background: var(--teal-50); }
+.aud-gate__ic { width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; font-size: 26px; background: var(--teal-50); color: var(--teal-600); margin-bottom: 8px; }
+.aud-gate__t { font-size: 18px; font-weight: 800; }
+.aud-gate__d { font-size: 14px; color: var(--ink-500); font-weight: 600; }
+
 @media (max-width: 900px) {
   .hero__grid { grid-template-columns: 1fr; gap: 20px; }
   .hero__visual { order: -1; }
@@ -344,8 +374,7 @@ p { margin: 0; }
 /* highlight the plan matching the chosen audience */
 .aud__card { transition: box-shadow .2s ease, border-color .2s ease, transform .15s ease; }
 body[data-aud="family"]   .aud__card--family,
-body[data-aud="business"] .aud__card--team,
-body[data-aud="school"]   .aud__card--ent {
+body[data-aud="business"] .aud__card--team {
   border-color: var(--teal-600); box-shadow: var(--sh-2);
 }
 
