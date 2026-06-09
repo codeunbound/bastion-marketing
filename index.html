@@ -59,49 +59,58 @@
   <section class="hero">
     <div class="wrap hero__grid">
       <div class="hero__copy">
-        <span class="eyebrow"><span class="dot"></span> Now in private beta</span>
-        <h1>A calmer internet for the devices <span class="accent">you manage.</span></h1>
-        <p class="hero__sub">Block adult content and distractions across every device — then schedule the rest. Allow YouTube only after homework, block games on school nights, ease up on weekends. Set it once on your account and it follows every phone, tablet and laptop. No hardware, no app to install.</p>
+        <div class="aud-switch" role="group" aria-label="Who are you setting up Bastion for?">
+          <span class="aud-switch__lbl">Setting up for</span>
+          <button type="button" data-aud="family" onclick="setAudience('family')"><i class="ph-fill ph-house-line"></i> My family</button>
+          <button type="button" data-aud="business" onclick="setAudience('business')"><i class="ph-fill ph-briefcase"></i> My team</button>
+          <button type="button" data-aud="school" onclick="setAudience('school')"><i class="ph-fill ph-graduation-cap"></i> My school</button>
+        </div>
+
+        <span class="eyebrow av av--family"><span class="dot"></span> Now in private beta</span>
+        <span class="eyebrow av av--business av-hide"><span class="dot"></span> For teams &amp; SMEs</span>
+        <span class="eyebrow av av--school av-hide"><span class="dot"></span> Built for schools</span>
+
+        <h1 class="av av--family">A calmer internet for the devices <span class="accent">you manage.</span></h1>
+        <h1 class="av av--business av-hide">Focused devices for the <span class="accent">team you run.</span></h1>
+        <h1 class="av av--school av-hide">Safe, scheduled internet for <span class="accent">every classroom.</span></h1>
+
+        <p class="hero__sub av av--family">Block adult content and distractions across every device — then schedule the rest. Allow YouTube only after homework, block games on school nights, ease up on weekends. Set it once on your account and it follows every phone, tablet and laptop. No hardware, no app to install.</p>
+        <p class="hero__sub av av--business av-hide">Apply productivity rules across every employee device, onboard with a single profile push, and review activity per person. Block distractions during work hours and ease up after — set it once and it follows the device on Wi-Fi or mobile data.</p>
+        <p class="hero__sub av av--school av-hide">Run content rules and time-based schedules across managed school devices — on your own dedicated, isolated instance. Lock profiles on supervised iPads, keep learning tools open in class and block the rest, with full data isolation.</p>
+
         <div class="hero__cta">
-          <a class="btn btn--primary btn--lg" href="https://dash.bastion.codeunbound.dev/signup">Create an account <i class="ph ph-arrow-right"></i></a>
+          <a class="btn btn--primary btn--lg av av--family" href="https://dash.bastion.codeunbound.dev/signup?type=family">Create an account <i class="ph ph-arrow-right"></i></a>
+          <a class="btn btn--primary btn--lg av av--business av-hide" href="https://dash.bastion.codeunbound.dev/signup?type=business">Create an account <i class="ph ph-arrow-right"></i></a>
+          <a class="btn btn--primary btn--lg av av--school av-hide" href="mailto:support@bastion.codeunbound.dev?subject=Bastion%20for%20schools">Talk to us <i class="ph ph-arrow-right"></i></a>
           <a class="btn btn--ghost btn--lg" href="#how">See how it works</a>
         </div>
-        <div class="hero__trust">
+
+        <div class="hero__trust av av--family">
           <span><i class="ph-fill ph-check-circle"></i> No hardware required</span>
           <span><i class="ph-fill ph-check-circle"></i> Wi-Fi &amp; mobile data</span>
           <span><i class="ph-fill ph-check-circle"></i> From ₹199 / month</span>
+        </div>
+        <div class="hero__trust av av--business av-hide">
+          <span><i class="ph-fill ph-check-circle"></i> Company-wide rules</span>
+          <span><i class="ph-fill ph-check-circle"></i> MDM for company iPhones</span>
+          <span><i class="ph-fill ph-check-circle"></i> From ₹599 / month</span>
+        </div>
+        <div class="hero__trust av av--school av-hide">
+          <span><i class="ph-fill ph-check-circle"></i> Dedicated, isolated instance</span>
+          <span><i class="ph-fill ph-check-circle"></i> Locked, unremovable profiles</span>
+          <span><i class="ph-fill ph-check-circle"></i> Schedules per classroom</span>
         </div>
       </div>
 
       <div class="hero__visual">
         <div class="phone-glow"></div>
 
-        <!-- SME phone peeking behind -->
-        <div class="phone phone--sm" style="position:absolute; left:0; bottom:18px; transform: rotate(-6deg);">
+        <div class="phone">
           <div class="phone__screen">
             <div class="phone__notch"></div>
-            <div class="scr scr--sme">
-              <div class="scr__bar"><span>9:41</span><span><i class="ph-fill ph-cell-signal-full"></i><i class="ph-fill ph-wifi-high"></i><i class="ph-fill ph-battery-high"></i></span></div>
-              <div class="scr__body">
-                <div class="scr__greet">Northwind Studio</div>
-                <div class="scr__title">Company</div>
-                <div class="scr-stat">
-                  <div class="scr-stat__c"><div class="scr-stat__n">18</div><div class="scr-stat__l">Devices</div></div>
-                  <div class="scr-stat__c"><div class="scr-stat__n">2,940</div><div class="scr-stat__l">Blocked today</div></div>
-                </div>
-                <div class="scr-sh">Company rules</div>
-                <div class="scr-cat is-on"><span class="scr-cat__ic"><i class="ph-fill ph-chats-circle"></i></span><span style="flex:1"><span class="scr-cat__nm">Social media</span><span class="scr-cat__st">Blocked</span></span><span class="scr-sw"><span class="scr-sw__k"></span></span></div>
-                <div class="scr-cat is-on"><span class="scr-cat__ic"><i class="ph-fill ph-poker-chip"></i></span><span style="flex:1"><span class="scr-cat__nm">Gambling</span><span class="scr-cat__st">Blocked</span></span><span class="scr-sw"><span class="scr-sw__k"></span></span></div>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <!-- Family phone front -->
-        <div class="phone" style="margin-left:64px;">
-          <div class="phone__screen">
-            <div class="phone__notch"></div>
-            <div class="scr">
+            <!-- Family screen -->
+            <div class="scr av av--family">
               <div class="scr__bar"><span>9:41</span><span><i class="ph-fill ph-cell-signal-full"></i><i class="ph-fill ph-wifi-high"></i><i class="ph-fill ph-battery-high"></i></span></div>
               <div class="scr__body">
                 <div class="scr__greet">Welcome back, Priya</div>
@@ -122,16 +131,78 @@
                 <div class="scr-cat"><span class="scr-cat__ic"><i class="ph-fill ph-game-controller"></i></span><span style="flex:1"><span class="scr-cat__nm">Gaming</span><span class="scr-cat__st">After 6pm</span></span><span class="scr-sw"><span class="scr-sw__k"></span></span></div>
               </div>
             </div>
+
+            <!-- Business screen -->
+            <div class="scr scr--sme av av--business av-hide">
+              <div class="scr__bar"><span>9:41</span><span><i class="ph-fill ph-cell-signal-full"></i><i class="ph-fill ph-wifi-high"></i><i class="ph-fill ph-battery-high"></i></span></div>
+              <div class="scr__body">
+                <div class="scr__greet">Northwind Studio</div>
+                <div class="scr__title">Company dashboard</div>
+                <div class="scr-stat">
+                  <div class="scr-stat__c"><div class="scr-stat__n">18</div><div class="scr-stat__l">Devices</div></div>
+                  <div class="scr-stat__c"><div class="scr-stat__n">2,940</div><div class="scr-stat__l">Blocked today</div></div>
+                </div>
+                <div class="scr-sh">Company rules</div>
+                <div class="scr-cat is-on"><span class="scr-cat__ic"><i class="ph-fill ph-chats-circle"></i></span><span style="flex:1"><span class="scr-cat__nm">Social media</span><span class="scr-cat__st">Blocked in work hours</span></span><span class="scr-sw"><span class="scr-sw__k"></span></span></div>
+                <div class="scr-cat is-on"><span class="scr-cat__ic"><i class="ph-fill ph-poker-chip"></i></span><span style="flex:1"><span class="scr-cat__nm">Gambling</span><span class="scr-cat__st">Blocked</span></span><span class="scr-sw"><span class="scr-sw__k"></span></span></div>
+                <div class="scr-cat"><span class="scr-cat__ic"><i class="ph-fill ph-television"></i></span><span style="flex:1"><span class="scr-cat__nm">Streaming</span><span class="scr-cat__st">Allowed</span></span><span class="scr-sw"><span class="scr-sw__k"></span></span></div>
+              </div>
+            </div>
+
+            <!-- School screen -->
+            <div class="scr av av--school av-hide">
+              <div class="scr__bar"><span>9:41</span><span><i class="ph-fill ph-cell-signal-full"></i><i class="ph-fill ph-wifi-high"></i><i class="ph-fill ph-battery-high"></i></span></div>
+              <div class="scr__body">
+                <div class="scr__greet">Greenfield School</div>
+                <div class="scr__title">Managed devices</div>
+                <div class="scr-stat">
+                  <div class="scr-stat__c"><div class="scr-stat__n">240</div><div class="scr-stat__l">Devices</div></div>
+                  <div class="scr-stat__c"><div class="scr-stat__n">12</div><div class="scr-stat__l">Classrooms</div></div>
+                </div>
+                <div class="scr-sh">Device groups</div>
+                <div class="scr-dev">
+                  <span class="scr-dev__ic"><i class="ph-fill ph-device-tablet"></i></span>
+                  <span style="flex:1"><span class="scr-dev__nm">Class 6 iPads</span><span class="scr-dev__meta">30 devices · iPadOS · Supervised</span></span>
+                  <i class="ph ph-caret-right" style="color:var(--ink-300)"></i>
+                </div>
+                <div class="scr-sh">School rules</div>
+                <div class="scr-cat is-on"><span class="scr-cat__ic"><i class="ph-fill ph-eye-slash"></i></span><span style="flex:1"><span class="scr-cat__nm">Adult content</span><span class="scr-cat__st">Blocked</span></span><span class="scr-sw"><span class="scr-sw__k"></span></span></div>
+                <div class="scr-cat"><span class="scr-cat__ic"><i class="ph-fill ph-game-controller"></i></span><span style="flex:1"><span class="scr-cat__nm">Games &amp; streaming</span><span class="scr-cat__st">Blocked in class</span></span><span class="scr-sw"><span class="scr-sw__k"></span></span></div>
+                <div class="scr-cat is-on"><span class="scr-cat__ic"><i class="ph-fill ph-book-open"></i></span><span style="flex:1"><span class="scr-cat__nm">Learning tools</span><span class="scr-cat__st">Always allowed</span></span><span class="scr-sw"><span class="scr-sw__k"></span></span></div>
+              </div>
+            </div>
+
           </div>
         </div>
 
-        <div class="float-chip float-chip--a">
+        <!-- Family chips -->
+        <div class="float-chip float-chip--a av av--family">
           <i class="ph-fill ph-shield-check" style="color:var(--teal-600)"></i>
           <span><b>Adult content</b><small>Blocked on 3 devices</small></span>
         </div>
-        <div class="float-chip float-chip--b">
+        <div class="float-chip float-chip--b av av--family">
           <i class="ph-fill ph-pulse" style="color:var(--allow)"></i>
           <span><b>1,284 queries</b><small>Filtered in the last 24h</small></span>
+        </div>
+
+        <!-- Business chips -->
+        <div class="float-chip float-chip--a av av--business av-hide">
+          <i class="ph-fill ph-shield-check" style="color:var(--teal-600)"></i>
+          <span><b>Social media</b><small>Blocked company-wide</small></span>
+        </div>
+        <div class="float-chip float-chip--b av av--business av-hide">
+          <i class="ph-fill ph-buildings" style="color:var(--allow)"></i>
+          <span><b>18 devices</b><small>Managed from one place</small></span>
+        </div>
+
+        <!-- School chips -->
+        <div class="float-chip float-chip--a av av--school av-hide">
+          <i class="ph-fill ph-lock-key" style="color:var(--teal-600)"></i>
+          <span><b>Profiles locked</b><small>Can't be removed on iPads</small></span>
+        </div>
+        <div class="float-chip float-chip--b av av--school av-hide">
+          <i class="ph-fill ph-clock" style="color:var(--allow)"></i>
+          <span><b>Lab unlocked</b><small>9am–3pm on schedule</small></span>
         </div>
       </div>
     </div>
@@ -522,6 +593,21 @@
   </footer>
 
   <script>
+    // Audience switcher — swaps hero copy, mockup and CTA, and highlights the matching plan.
+    function setAudience(key) {
+      if (!['family', 'business', 'school'].includes(key)) key = 'family';
+      document.body.setAttribute('data-aud', key);
+      document.querySelectorAll('.aud-switch button').forEach((b) => b.classList.toggle('is-active', b.dataset.aud === key));
+      document.querySelectorAll('.av').forEach((el) => el.classList.toggle('av-hide', !el.classList.contains('av--' + key)));
+      try { localStorage.setItem('bastion-aud', key); } catch (e) { /* private mode */ }
+    }
+    (function () {
+      let saved = null;
+      try { saved = localStorage.getItem('bastion-aud'); } catch (e) { /* private mode */ }
+      const hash = (location.hash.match(/aud=(family|business|school)/) || [])[1];
+      setAudience(hash || saved || 'family');
+    })();
+
     // Product tour switcher
     function setTour(i) {
       document.querySelectorAll('#tourTabs .tour-tab').forEach((t, n) => t.classList.toggle('is-active', n === i));
