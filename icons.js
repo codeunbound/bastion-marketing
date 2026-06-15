@@ -65,7 +65,8 @@
     'android-logo': '<g fill="currentColor" stroke="none"><path d="M5 11h14a1 1 0 0 1 1 1v5a1.5 1.5 0 0 1-1.5 1.5H5.5A1.5 1.5 0 0 1 4 17v-5a1 1 0 0 1 1-1z"/><rect x="4" y="13" width="2.4" height="6" rx="1.2"/><rect x="17.6" y="13" width="2.4" height="6" rx="1.2"/><rect x="8" y="18" width="2.4" height="4.5" rx="1.2"/><rect x="13.6" y="18" width="2.4" height="4.5" rx="1.2"/><path d="M7 10a5 5 0 0 1 10 0z"/></g><path d="M8.5 4.2 7.4 2.6M15.5 4.2l1.1-1.6" stroke-width="1.6"/><circle cx="9.5" cy="7.5" r=".7" fill="currentColor" stroke="none"/><circle cx="14.5" cy="7.5" r=".7" fill="currentColor" stroke="none"/>',
     'windows-logo': '<g fill="currentColor" stroke="none"><path d="M3 5.6 11 4.5v7H3zM13 4.2 21 3v8.5h-8zM3 13h8v7l-8-1.1zM13 13h8v8l-8-1.1z"/></g>',
     'linux-logo': '<g fill="currentColor" stroke="none"><path d="M12 2.2c-2.1 0-3.6 1.6-3.6 3.9 0 .8.1 1.5.1 2.2 0 1.1-1.5 2.6-2.4 4.5-.9 1.9-1.6 3.4-1.3 4.4.2.7.8.8 1.4.6.3 1.1 1.1 2 2.2 2.6 1 .6 2.2.9 3.6.9s2.6-.3 3.6-.9c1.1-.6 1.9-1.5 2.2-2.6.6.2 1.2.1 1.4-.6.3-1-.4-2.5-1.3-4.4-.9-1.9-2.4-3.4-2.4-4.5 0-.7.1-1.4.1-2.2 0-2.3-1.5-3.9-3.6-3.9z"/><ellipse cx="9.6" cy="21.3" rx="1.6" ry=".8"/><ellipse cx="14.4" cy="21.3" rx="1.6" ry=".8"/></g><g fill="#ffffff" stroke="none"><circle cx="10.5" cy="6.7" r=".95"/><circle cx="13.5" cy="6.7" r=".95"/></g><g fill="currentColor" stroke="none"><circle cx="10.6" cy="6.8" r=".4"/><circle cx="13.4" cy="6.8" r=".4"/><path d="M11.1 8.2 12 9.1l.9-.9z"/></g>',
-    'monitor-check': '<rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/><path d="m8.4 10.4 2.2 2.2 4.4-4.4"/>'
+    'monitor-check': '<rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/><path d="m8.4 10.4 2.2 2.2 4.4-4.4"/>',
+    'map-pin': '<path d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/>'
   };
   // aliases (Phosphor name → existing key)
   var ALIAS = {

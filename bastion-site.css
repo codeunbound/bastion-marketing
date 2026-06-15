@@ -135,6 +135,7 @@ p { margin: 0; }
 .nav__in { display: flex; align-items: center; gap: 28px; height: 70px; }
 .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 19px; letter-spacing: -0.02em; }
 .brand__mark { width: 30px; height: 34px; flex: 0 0 auto; }
+.brand__beta { margin-left: 4px; font-family: var(--mono); font-size: 9.5px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; line-height: 1; color: var(--teal-700); background: var(--teal-50); border: 1px solid var(--teal-100); border-radius: 999px; padding: 3px 7px; }
 .nav__links { display: flex; align-items: center; gap: 26px; margin-left: 8px; }
 .nav__links a { font-size: 15.5px; font-weight: 600; color: var(--ink-700); transition: color .15s ease; }
 .nav__links a:hover { color: var(--teal-700); }

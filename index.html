@@ -73,12 +73,12 @@
           <path d="M15 1.5 L27.5 6 V16.5 C27.5 25 21.8 30.4 15 32.5 C8.2 30.4 2.5 25 2.5 16.5 V6 Z" fill="#0e8088"/>
           <path d="M9.5 17 l3.6 3.6 L21 12.6" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        Bastion
+        Bastion<span class="brand__beta">Beta</span>
       </a>
       <nav class="nav__links">
         <a href="#why">Why Bastion</a>
         <a href="#how">How it works</a>
-        <a href="#honest">Straight talk</a>
+        <a href="#privacy">Privacy</a>
         <a href="pricing.html">Pricing</a>
       </nav>
       <div class="nav__spacer"></div>
@@ -104,7 +104,7 @@
       <div class="hero__variant" data-for="family" data-screen-label="hero · family">
         <div class="hero__grid">
           <div class="hero__copy">
-            <span class="eyebrow"><span class="dot"></span> Now live</span>
+            <span class="eyebrow"><span class="dot"></span> Now in beta</span>
             <h1>Decide <span class="accent">when</span> the internet is on — not just what's blocked.</h1>
             <p class="hero__sub">Managed content filtering for your kids' devices. Pick a child's age and Bastion applies sensible rules and schedules — homework hours, bedtime, weekend limits — across every device they use. Set it once; it runs itself. No hardware, nothing to install on cooperative devices.</p>
             <div class="hero__cta">
@@ -136,7 +136,7 @@
       <div class="hero__variant" data-for="business" data-screen-label="hero · business">
         <div class="hero__grid">
           <div class="hero__copy">
-            <span class="eyebrow"><span class="dot"></span> Now live</span>
+            <span class="eyebrow"><span class="dot"></span> Now in beta</span>
             <h1>The office filter that <span class="accent">doesn’t get switched off.</span></h1>
             <p class="hero__sub">Managed content filtering for the devices you run. A flat DNS block breaks someone's job by lunchtime — Bastion does groups: each team gets rules that fit its work, scam and phishing domains stay blocked for everyone, and per-employee reports show what's happening on the devices you own. No IT hire needed.</p>
             <div class="hero__cta">
@@ -168,7 +168,7 @@
       <div class="hero__variant" data-for="school" data-screen-label="hero · school">
         <div class="hero__grid">
           <div class="hero__copy">
-            <span class="eyebrow"><span class="dot"></span> Now live</span>
+            <span class="eyebrow"><span class="dot"></span> Now in beta</span>
             <h1>A <span class="accent">safe</span>, age-appropriate internet on every school device.</h1>
             <p class="hero__sub">Parents trust your school with their children. Bastion helps you show that trust is kept — age-appropriate rules for every grade, a documented record if a parent or the board ever asks, and exam lockdown — all run for you on your own isolated instance, with support and an SLA.</p>
             <div class="hero__cta">
@@ -448,41 +448,54 @@
     </div>
   </section>
 
-  <!-- ============================== STRAIGHT TALK ============================== -->
-  <section class="section" id="honest">
+  <!-- ============================== WHY PER-DEVICE (vs router) ============================== -->
+  <section class="section section--tight" id="router" style="background:var(--bg);">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="eyebrow">Straight talk</span>
-        <h2>What Bastion can and can't do.</h2>
-        <p class="lead">Filtering is a strong layer, not a magic wall. We'd rather you know exactly where the edges are.</p>
+        <span class="eyebrow">Why on the device</span>
+        <h2>Why filtering at the router isn't enough.</h2>
+        <p class="lead">The obvious idea is to block at the home or office router and be done. It sounds tidy — but a router only guards one Wi-Fi, treats every device the same, and protects nothing the moment a phone leaves the building. Bastion filters on the device itself, so the rules travel with it.</p>
       </div>
       <div class="honest reveal">
         <div class="honest__cols">
-          <div class="honest__col can">
-            <div class="honest__h can"><i class="ph-fill ph-check-circle"></i> Where it's strong</div>
-            <ul class="honest__list">
-              <li><i class="ph-fill ph-check"></i> Cooperative and managed devices — young kids, and MDM-locked company or school devices where the profile can't be removed and VPN installs are restricted.</li>
-              <li><i class="ph-fill ph-check"></i> It neutralises Apple iCloud Private Relay so it can't quietly route around your rules.</li>
-              <li><i class="ph-fill ph-check"></i> Blocks whole categories and specific sites, on schedule, across every device — on Wi-Fi and mobile data.</li>
-              <li><i class="ph-fill ph-check"></i> Gives the account owner a clear, per-device record of what was reached and what was blocked.</li>
-            </ul>
-          </div>
           <div class="honest__col cant">
-            <div class="honest__h cant"><i class="ph-fill ph-warning-circle"></i> Where the limits are</div>
+            <div class="honest__h cant"><i class="ph-fill ph-wifi-high"></i> Blocking at the router</div>
             <ul class="honest__list">
-              <li><i class="ph-fill ph-minus"></i> On an adversarial BYOD device — say, a teen who actively wants around it — DNS filtering is bypassable. Anyone who can change the DNS setting or run a VPN can tunnel past it.</li>
-              <li><i class="ph-fill ph-minus"></i> Protect the DNS setting with a Screen Time or device PIN, and restrict VPN installs, to keep rules intact.</li>
-              <li><i class="ph-fill ph-minus"></i> Enforcement is strongest on devices you own and manage. On personal devices it relies on cooperation.</li>
+              <li><i class="ph-fill ph-minus"></i> <span><b>Only works on that one Wi-Fi.</b> Switch to mobile data, a friend's house, the café or the bus and the filter is simply gone — the device is wide open.</span></li>
+              <li><i class="ph-fill ph-minus"></i> <span><b>One rule for everyone.</b> A router can't tell a 7-year-old's tablet from a parent's laptop, or marketing from accounts — so the whole network gets the same blocklist.</span></li>
+              <li><i class="ph-fill ph-minus"></i> <span><b>No idea which device did what.</b> It can't separate one device from another, so there's no per-device report and no schedule that follows a person.</span></li>
+              <li><i class="ph-fill ph-minus"></i> <span><b>Sidestepped in seconds.</b> Any other network — even a phone's own hotspot — skips the router completely.</span></li>
             </ul>
-            <p style="margin-top:18px; font-size:13.5px; color:var(--ink-400);">A bypass-resistant Android app and school-fleet management for Windows are on our roadmap.</p>
+          </div>
+          <div class="honest__col can">
+            <div class="honest__h can"><i class="ph-fill ph-check-circle"></i> Bastion on each device</div>
+            <ul class="honest__list">
+              <li><i class="ph-fill ph-check"></i> <span><b>Follows the device everywhere.</b> Wi-Fi, mobile data, any network — the same rules apply, because they live on the device, not the wall socket.</span></li>
+              <li><i class="ph-fill ph-check"></i> <span><b>The right rules for the right device.</b> Per-child, per-team and per-device rules and schedules — homework hours on one, social allowed on another.</span></li>
+              <li><i class="ph-fill ph-check"></i> <span><b>A clear per-device record.</b> See what each device reached and what was blocked — something you can actually act on.</span></li>
+              <li><i class="ph-fill ph-check"></i> <span><b>Nothing to plug in.</b> No new router, no hardware — a one-tap profile or a single setting; managed Windows PCs add a tamper-resistant agent.</span></li>
+            </ul>
           </div>
         </div>
-        <div class="honest__note pv" data-for="business">
-          <b>What you see — and what your team should know.</b> Bastion reads domain names only — never page content, messages or keystrokes. Reports cover the company-owned devices you enrol, and history is kept for your plan's window, then deleted. Most owners say so up front — our acceptable-use policy templates make that easy.
-        </div>
-        <div class="honest__note pv" data-for="school">
-          <b>What the school sees — and what students should know.</b> Domain names only — never page content, messages or keystrokes. Reports cover school-owned, managed devices, and the record stays on your own instance for 30 or 90 days. It exists to protect students and staff alike — and it's worth saying so openly.
-        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== PRIVACY · PLAIN WORDS ============================== -->
+  <section class="section" id="privacy">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Your data, simply</span>
+        <h2>What we can see — and what we can't.</h2>
+        <p class="lead">No jargon. Here's exactly what Bastion looks at, where your information lives and how long it stays — in plain words a normal person can check.</p>
+      </div>
+      <div class="feat">
+        <div class="feat__item reveal"><span class="feat__ic"><i class="ph-fill ph-device-mobile-camera"></i></span><div><h4>Nothing to install on phones</h4><p>On phones, tablets and Macs there's no app to download — Bastion is just a setting we help you switch on. Only managed Windows PCs add a small company agent.</p></div></div>
+        <div class="feat__item reveal"><span class="feat__ic"><i class="ph-fill ph-eye-slash"></i></span><div><h4>We see website names, not what's inside</h4><p>Bastion works at the address-book level. It sees that a device asked for, say, <code>youtube.com</code> — never your messages, photos, passwords or anything on the page. We couldn't read those if we tried.</p></div></div>
+        <div class="feat__item reveal"><span class="feat__ic"><i class="ph-fill ph-map-pin"></i></span><div><h4>Your data stays in India</h4><p>Everything is processed and stored on our servers in India and never leaves them. No third-party trackers, no sending your activity off to anyone else.</p></div></div>
+        <div class="feat__item reveal"><span class="feat__ic"><i class="ph-fill ph-clock-counter-clockwise"></i></span><div><h4>History deletes itself</h4><p>Home keeps a rolling 7 days of activity, then it's genuinely gone. The window you can see is the only window we keep — nothing is hoarded in the background.</p></div></div>
+        <div class="feat__item reveal"><span class="feat__ic"><i class="ph-fill ph-lock-key"></i></span><div><h4>No ads. Nothing sold.</h4><p>You pay a simple subscription by UPI. We don't show ads and we don't sell or share your browsing — selling your data isn't our business model, your money is.</p></div></div>
+        <div class="feat__item reveal"><span class="feat__ic"><i class="ph-fill ph-fingerprint"></i></span><div><h4>Each device kept separate</h4><p>Every device gets its own private address, so one device's rules and history never mix with another's — or with any other customer's.</p></div></div>
       </div>
     </div>
   </section>
@@ -494,7 +507,7 @@
       <div class="section-head reveal" style="max-width:760px;">
         <span class="eyebrow">Simple pricing</span>
         <h2>₹199 a month. The whole household.</h2>
-        <p class="lead">One flat price for up to 10 devices — every feature included, paid by UPI, cancel anytime. Annual saves about 20%.</p>
+        <p class="lead">One flat price for up to 5 devices — every feature included, paid by UPI, cancel anytime. Annual saves about 20%.</p>
         <div style="margin-top:26px; display:flex; gap:14px; flex-wrap:wrap;">
           <a class="btn btn--primary btn--lg" href="pricing.html">See full pricing <i class="ph ph-arrow-right"></i></a>
           <a class="btn btn--ghost btn--lg" href="https://dash.bastion.codeunbound.dev">Get started</a>
@@ -546,6 +559,45 @@
     </div>
   </section>
 
+  <!-- ============================== STRAIGHT TALK ============================== -->
+  <section class="section" id="honest" style="background:var(--bg);">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Straight talk</span>
+        <h2>What Bastion can and can't do.</h2>
+        <p class="lead">Filtering is a strong layer, not a magic wall. We'd rather you know exactly where the edges are.</p>
+      </div>
+      <div class="honest reveal">
+        <div class="honest__cols">
+          <div class="honest__col can">
+            <div class="honest__h can"><i class="ph-fill ph-check-circle"></i> Where it's strong</div>
+            <ul class="honest__list">
+              <li><i class="ph-fill ph-check"></i> Cooperative and managed devices — young kids, and MDM-locked company or school devices where the profile can't be removed and VPN installs are restricted.</li>
+              <li><i class="ph-fill ph-check"></i> It neutralises Apple iCloud Private Relay so it can't quietly route around your rules.</li>
+              <li><i class="ph-fill ph-check"></i> Blocks whole categories and specific sites, on schedule, across every device — on Wi-Fi and mobile data.</li>
+              <li><i class="ph-fill ph-check"></i> Gives the account owner a clear, per-device record of what was reached and what was blocked.</li>
+            </ul>
+          </div>
+          <div class="honest__col cant">
+            <div class="honest__h cant"><i class="ph-fill ph-warning-circle"></i> Where the limits are</div>
+            <ul class="honest__list">
+              <li><i class="ph-fill ph-minus"></i> On an adversarial BYOD device — say, a teen who actively wants around it — DNS filtering is bypassable. Anyone who can change the DNS setting or run a VPN can tunnel past it.</li>
+              <li><i class="ph-fill ph-minus"></i> Protect the DNS setting with a Screen Time or device PIN, and restrict VPN installs, to keep rules intact.</li>
+              <li><i class="ph-fill ph-minus"></i> Enforcement is strongest on devices you own and manage. On personal devices it relies on cooperation.</li>
+            </ul>
+            <p style="margin-top:18px; font-size:13.5px; color:var(--ink-400);">A bypass-resistant Android app and school-fleet management for Windows are on our roadmap.</p>
+          </div>
+        </div>
+        <div class="honest__note pv" data-for="business">
+          <b>What you see — and what your team should know.</b> Bastion reads domain names only — never page content, messages or keystrokes. Reports cover the company-owned devices you enrol, and history is kept for your plan's window, then deleted. Most owners say so up front — our acceptable-use policy templates make that easy.
+        </div>
+        <div class="honest__note pv" data-for="school">
+          <b>What the school sees — and what students should know.</b> Domain names only — never page content, messages or keystrokes. Reports cover school-owned, managed devices, and the record stays on your own instance for 30 or 90 days. It exists to protect students and staff alike — and it's worth saying so openly.
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============================== CTA BAND ============================== -->
   <section class="section section--tight">
     <div class="wrap">
@@ -553,7 +605,7 @@
         <div class="ctaband__in">
           <div class="pv" data-for="family">
             <h2>Decide when the internet is on.</h2>
-            <p>Bastion is live. Set up your first device in minutes — no waitlist.</p>
+            <p>Bastion is live, in open beta. Set up your first device in minutes — no waitlist.</p>
             <div class="btns">
               <a class="btn btn--onteal btn--lg" href="https://dash.bastion.codeunbound.dev">Get started <i class="ph ph-arrow-right"></i></a>
               <a class="btn btn--onteal-ghost btn--lg" href="#why">See scheduling</a>
@@ -561,7 +613,7 @@
           </div>
           <div class="pv" data-for="business">
             <h2>A filter the whole office can live with.</h2>
-            <p>Bastion is live. Group the team's devices in minutes — 10 included from ₹599 a month.</p>
+            <p>Bastion is live, in open beta. Group the team's devices in minutes — 10 included from ₹599 a month.</p>
             <div class="btns">
               <a class="btn btn--onteal btn--lg" href="https://dash.bastion.codeunbound.dev">Get started <i class="ph ph-arrow-right"></i></a>
               <a class="btn btn--onteal-ghost btn--lg" href="pricing.html">See pricing</a>
